@@ -27,7 +27,7 @@
     "react-idle-timer": "^5.7.2",
     "react-map-gl": "^8.0.4",
     "react-window": "^1.8.11",
-    "recharts": "^2.15.3",
+    "recharts": "^3.0.0",
     "validator": "^13.15.15"
   },
   "description": "Design Language System (DLS) for Encoura front-end projects.",
