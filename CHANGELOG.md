@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/nrccua/dls/compare/v2.0.0...v2.1.0) (2025-11-12)
+
+
+### Features
+
+* Fixing Icon Button color secondary hover color for e4e theme ([dbeaf28](https://github.com/nrccua/dls/commit/dbeaf282a22d8553cc6856cd6e560d62073e27f6))
+
 # [2.0.0](https://github.com/nrccua/dls/compare/v1.1.0...v2.0.0) (2025-10-24)
 
 
