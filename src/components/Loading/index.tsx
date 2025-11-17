@@ -10,10 +10,12 @@ import { CSSProperties, FC, ReactElement } from 'react';
 
 import { StyledContainer, StyledTypography } from './styles';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export interface LoadingProps {
   circularProgressProps?: CircularProgressProps;
   style?: CSSProperties;
   title?: string;
+  'aria-label'?: string;
 }
 
 export const Loading: FC<LoadingProps> = ({
@@ -23,8 +25,9 @@ export const Loading: FC<LoadingProps> = ({
   },
   style,
   title,
+  'aria-label': ariaLabel = 'Loading ...',
 }: LoadingProps): ReactElement<LoadingProps> => (
-  <StyledContainer aria-label={title} data-chromatic="ignore" data-testid="loading" style={style}>
+  <StyledContainer aria-label={title || ariaLabel} data-chromatic="ignore" data-testid="loading" style={style}>
     <CircularProgress size={24} thickness={4.5} title={title} {...circularProgressProps} />
 
     {title && <StyledTypography variant="overline">{title}</StyledTypography>}
