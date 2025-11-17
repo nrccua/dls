@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/nrccua/dls/compare/v2.1.0...v2.1.1) (2025-11-17)
+
+
+### Bug Fixes
+
+* [E4E-2706]: Add default aria label to Loading component ([25a5c23](https://github.com/nrccua/dls/commit/25a5c2387ca68feb4bd04c7ea01122342cef5971))
+
 # [2.1.0](https://github.com/nrccua/dls/compare/v2.0.0...v2.1.0) (2025-11-12)
 
 
