@@ -82,7 +82,7 @@
     "clean-publish": "6.0.1",
     "core-js": "3.46.0",
     "cross-env": "10.1.0",
-    "eslint-plugin-storybook": "9.1.16",
+    "eslint-plugin-storybook": "10.1.11",
     "flat": "6.0.1",
     "husky": "9.1.7",
     "identity-obj-proxy": "3.0.0",
