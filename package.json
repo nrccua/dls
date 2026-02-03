@@ -8,7 +8,7 @@
     "Jon Cursi <jon.cursi@encoura.org>"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.27.6",
+    "@babel/runtime": "^7.28.6",
     "@turf/bbox": "^7.2.0",
     "clsx": "^2.1.1",
     "color": "^5.0.0",
