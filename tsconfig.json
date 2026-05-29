@@ -6,7 +6,7 @@
     "target": "es2020",
     "incremental": false,
     "jsx": "react-jsx",
-    "noEmit": false,
+    "noEmit": true,
     "outDir": "./.storybook",
     "paths": {
       "~/*": ["src/*"]
@@ -15,5 +15,5 @@
   },
   "exclude": ["./.storybook/*", "./lib/*", "./node_modules/*", "./storybook-static/*", "**/test/*", "**/icons/*"],
   "extends": "./node_modules/@encoura/eslint-config/tsconfig.json",
-  "include": ["./index.d.ts", "./src/**/*"]
+  "include": ["./index.d.ts", "./src/**/*", "./vitest*.ts"]
 }

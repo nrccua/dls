@@ -6,6 +6,7 @@
     "declarationMap": true,
     "inlineSources": true,
     "module": "ESNext",
+    "noEmit": false,
     "outDir": "./dist",
     "paths": {
       "~/*": ["src/*"]
@@ -29,5 +30,6 @@
     "./storybook-static/*",
     "**/test/*",
     "**/icons/*"
-  ]
+  ],
+  "include": ["./src/**/*"]
 }
