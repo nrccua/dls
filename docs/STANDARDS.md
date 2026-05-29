@@ -33,7 +33,12 @@ company-wide standards. This approach allows us to:
 | **Maps**              | <a href="https://www.mapbox.com/" target="_blank">Mapbox</a> (DLS provides custom Map components via <a href="https://visgl.github.io/react-map-gl/" target="_blank">react-map-gl</a>)                                                                                                              | None                                                                       |
 | **Forms**             | <a href="https://react-hook-form.com/" target="_blank">React Hook Form</a>                                                                                                                                                                                                                          | None                                                                       |
 | **Component Testing** | <a href="https://www.chromatic.com/" target="_blank">Chromatic</a> & <a href="https://storybook.js.org/" target="_blank">Storybook</a>                                                                                                                                                              | None                                                                       |
-| **Unit Testing**      | <a href="https://jestjs.io/" target="_blank">Jest</a>                                                                                                                                                                                                                                               | <a href="https://vitest.dev/" target="_blank">Vitest</a>                   |
+| **Unit Testing**      | <a href="https://vitest.dev/" target="_blank">Vitest</a>                                                                                                                                                                                                                                            | None                                                                       |
+
+The existing custom chart components are candidates for deprecation if they
+remain too design-constrained to adapt cleanly across products. For future
+chart work, evaluate whether lower-level MUI X Charts primitives offer a more
+flexible long-term foundation than adding more custom Recharts wrappers here.
 
 ## Standard Adoption Process
 

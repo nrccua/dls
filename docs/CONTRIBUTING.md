@@ -15,10 +15,13 @@ To run the DLS locally:
 
 When you're ready to pilot your changes to this library in your local project:
 
-1. Run the `npm run pack` command. When it finishes running, it will generate a
-   `.tgz` file in the `/dist` folder with the following name format
+1. Run `npm run build` to generate a fresh package build in the `dist` folder.
+
+2. Run `npm pack ./dist --pack-destination ./dist`. When it finishes running,
+   it will generate a `.tgz` file in the `/dist` folder with the following name format
    `encoura-dls-<version-number>.tgz`;
-2. Access the `package.json` file of your local project in which the
+
+3. Access the `package.json` file of your local project in which the
    `@encoura/dls` package will be tested, and make the following edit:
 
    ```json
@@ -31,15 +34,16 @@ When you're ready to pilot your changes to this library in your local project:
    }
    ```
 
-3. Run `npm update @encoura/dls` to refresh your project's `node_modules` folder.
+4. Run `npm update @encoura/dls` to refresh your project's `node_modules` folder.
 
-4. You can now run your project with the local changes made to this library!
+5. You can now run your project with the local changes made to this library!
 
-5. If you want to make any further edits to this library, simply run
-   `npm run pack` to package up the changes, and then `npm update @encoura/dls`
-   in your local project to pull them in.
+6. If you want to make any further edits to this library, simply run
+   `npm run build` and `npm pack ./dist --pack-destination ./dist` to package
+   up the changes, and then `npm update @encoura/dls` in your local project to
+   pull them in.
 
-6. When you're done piloting the changes, simply revert your project's
+7. When you're done piloting the changes, simply revert your project's
    `package.json` file to pull this library from NPM, and run
    `npm update @encoura/dls` to refresh your project's `node_modules` folder.
 
