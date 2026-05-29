@@ -6,7 +6,9 @@
  */
 
 import { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
+import { CHROMATIC_RECHARTS_ANIMATION_PROPS } from '../../../.storybook/chromatic';
 import { StoryVariation } from '~/components/StoryVariation';
 import ThemeProvider from '~/components/ThemeProvider';
 import { createThemeStory } from '~/helpers/createThemeStory';
@@ -16,6 +18,10 @@ import { ThemesArray } from '~/styles/themes';
 import { DATA, defaultLineKeys, processDataFn, yAxisDataKey } from './mocks';
 
 import { LineChart, LineChartProps } from '.';
+
+const ChromaticLineChart = ({ lineProps, ...props }: LineChartProps): React.ReactElement => (
+  <LineChart {...props} lineProps={{ ...CHROMATIC_RECHARTS_ANIMATION_PROPS, ...lineProps }} />
+);
 
 export default {
   args: {
@@ -107,7 +113,7 @@ const themeStories = ThemesArray.reduce(
         <ThemeProvider theme={theme}>
           <StoryVariation label="Default Line Chart">
             <div style={{ height: 450, width: '100%' }}>
-              <LineChart
+              <ChromaticLineChart
                 data={processDataFn(DATA)}
                 height={450}
                 lineKeys={defaultLineKeys}
@@ -123,7 +129,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Custom Line Colors">
             <div style={{ height: 450, width: '100%' }}>
-              <LineChart
+              <ChromaticLineChart
                 colors={['#FF0000', '#00FF00', '#0000FF']}
                 data={processDataFn(DATA)}
                 height={450}
@@ -140,7 +146,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="With Grid">
             <div style={{ height: 450, width: '100%' }}>
-              <LineChart
+              <ChromaticLineChart
                 cartesianGridProps={{ strokeDasharray: '3 3' }}
                 data={processDataFn(DATA)}
                 height={450}
@@ -157,7 +163,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Custom Line Props">
             <div style={{ height: 450, width: '100%' }}>
-              <LineChart
+              <ChromaticLineChart
                 data={processDataFn(DATA)}
                 height={450}
                 lineKeys={defaultLineKeys}
@@ -174,7 +180,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Fixed Dimensions">
             <div style={{ height: 400, width: '100%' }}>
-              <LineChart
+              <ChromaticLineChart
                 data={processDataFn(DATA)}
                 height={350}
                 lineKeys={defaultLineKeys}
@@ -190,7 +196,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Custom X Axis">
             <div style={{ height: 450, width: '100%' }}>
-              <LineChart
+              <ChromaticLineChart
                 data={processDataFn(DATA)}
                 height={450}
                 lineKeys={defaultLineKeys}
@@ -210,7 +216,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Custom Y Axis">
             <div style={{ height: 450, width: '100%' }}>
-              <LineChart
+              <ChromaticLineChart
                 data={processDataFn(DATA)}
                 height={450}
                 lineKeys={defaultLineKeys}
@@ -228,7 +234,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Responsive Container">
             <div style={{ height: 400, width: '100%' }}>
-              <LineChart
+              <ChromaticLineChart
                 data={processDataFn(DATA)}
                 height={400}
                 lineKeys={defaultLineKeys}

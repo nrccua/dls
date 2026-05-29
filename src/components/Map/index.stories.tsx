@@ -8,6 +8,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { FullscreenControl, GeolocateControl, Marker, ScaleControl } from 'react-map-gl/mapbox';
 
+import { CHROMATIC_MAP_PARAMETERS, CHROMATIC_MAP_PLAY, CHROMATIC_MAP_PROPS } from '../../../.storybook/chromatic';
 import { StoryVariation } from '~/components/StoryVariation';
 import ThemeProvider from '~/components/ThemeProvider';
 import { createThemeStory } from '~/helpers/createThemeStory';
@@ -76,7 +77,14 @@ const themeStories = ThemesArray.reduce(
         <ThemeProvider theme={theme}>
           <StoryVariation label="Default Map">
             <div style={{ height: 400, width: '100%' }}>
-              <Map data={defaultData} height={400} mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''} sourceId="default" width="100%" />
+              <Map
+                data={defaultData}
+                height={400}
+                mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''}
+                sourceId="default"
+                width="100%"
+                {...CHROMATIC_MAP_PROPS}
+              />
             </div>
           </StoryVariation>
 
@@ -87,10 +95,10 @@ const themeStories = ThemesArray.reduce(
                 height={400}
                 initialViewState={{ latitude: 32.3182, longitude: -86.9023, zoom: 5.5 }}
                 mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''}
-                mapStyle="mapbox://styles/mapbox/streets-v9"
                 sourceId="mapProps"
                 style={{ height: 400, width: '100%' }}
                 width="100%"
+                {...CHROMATIC_MAP_PROPS}
               />
             </div>
           </StoryVariation>
@@ -108,13 +116,21 @@ const themeStories = ThemesArray.reduce(
                 }}
                 sourceId="controlProps"
                 width="100%"
+                {...CHROMATIC_MAP_PROPS}
               />
             </div>
           </StoryVariation>
 
           <StoryVariation label="With Other Controls">
             <div style={{ height: 400, width: '100%' }}>
-              <Map data={defaultData} height={400} mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''} sourceId="otherControls" width="100%">
+              <Map
+                data={defaultData}
+                height={400}
+                mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''}
+                sourceId="otherControls"
+                width="100%"
+                {...CHROMATIC_MAP_PROPS}
+              >
                 <>
                   <GeolocateControl position="top-left" />
                   <FullscreenControl position="top-left" />
@@ -126,7 +142,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="With Marker">
             <div style={{ height: 400, width: '100%' }}>
-              <Map height={400} mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''} sourceId="children" width="100%">
+              <Map height={400} mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''} sourceId="children" width="100%" {...CHROMATIC_MAP_PROPS}>
                 <Marker color="red" latitude={37.8} longitude={-122.4} />
               </Map>
             </div>
@@ -140,7 +156,17 @@ const themeStories = ThemesArray.reduce(
   {} as Record<string, Story>,
 );
 
-export const ThemeEncoura = { ...themeStories.ENCOURA, name: 'Theme: Encoura', parameters: { chromatic: { delay: 1500 } } };
-export const ThemeEncouraClassic = { ...themeStories.ENCOURA_CLASSIC, name: 'Theme: Encoura Classic', parameters: { chromatic: { delay: 1500 } } };
-export const ThemeEncourage = { ...themeStories.ENCOURAGE, name: 'Theme: Encourage', parameters: { chromatic: { delay: 1500 } } };
-export const ThemeEncourageE4E = { ...themeStories.ENCOURAGE_E4E, name: 'Theme: Encourage E4E', parameters: { chromatic: { delay: 1500 } } };
+export const ThemeEncoura = { ...themeStories.ENCOURA, name: 'Theme: Encoura', parameters: CHROMATIC_MAP_PARAMETERS, play: CHROMATIC_MAP_PLAY };
+export const ThemeEncouraClassic = {
+  ...themeStories.ENCOURA_CLASSIC,
+  name: 'Theme: Encoura Classic',
+  parameters: CHROMATIC_MAP_PARAMETERS,
+  play: CHROMATIC_MAP_PLAY,
+};
+export const ThemeEncourage = { ...themeStories.ENCOURAGE, name: 'Theme: Encourage', parameters: CHROMATIC_MAP_PARAMETERS, play: CHROMATIC_MAP_PLAY };
+export const ThemeEncourageE4E = {
+  ...themeStories.ENCOURAGE_E4E,
+  name: 'Theme: Encourage E4E',
+  parameters: CHROMATIC_MAP_PARAMETERS,
+  play: CHROMATIC_MAP_PLAY,
+};

@@ -7,7 +7,9 @@
 
 import { Typography } from '@mui/material';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
+import { CHROMATIC_RECHARTS_ANIMATION_PROPS } from '../../../.storybook/chromatic';
 import { StoryVariation } from '~/components/StoryVariation';
 import ThemeProvider from '~/components/ThemeProvider';
 import { createThemeStory } from '~/helpers/createThemeStory';
@@ -17,6 +19,10 @@ import { ThemesArray } from '~/styles/themes';
 import { defaultData, largerDataset, largerDatasetWith18Keys, percentageData } from './mocks';
 
 import { AreaChart, AreaChartProps } from '.';
+
+const ChromaticAreaChart = ({ areaProps, ...props }: AreaChartProps): React.ReactElement => (
+  <AreaChart {...props} areaProps={{ ...CHROMATIC_RECHARTS_ANIMATION_PROPS, ...areaProps }} />
+);
 
 export default {
   args: {
@@ -96,49 +102,49 @@ const themeStories = ThemesArray.reduce(
         <ThemeProvider theme={theme}>
           <StoryVariation label="Default Area Chart">
             <div style={{ height: 300, width: '100%' }}>
-              <AreaChart areaKeys={['A']} data={defaultData} />
+              <ChromaticAreaChart areaKeys={['A']} data={defaultData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Multiple Areas">
             <div style={{ height: 300, width: '100%' }}>
-              <AreaChart areaKeys={['A', 'B']} areaProps={{ fillOpacity: 0.6 }} data={largerDatasetWith18Keys} />
+              <ChromaticAreaChart areaKeys={['A', 'B']} areaProps={{ fillOpacity: 0.6 }} data={largerDatasetWith18Keys} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="With Labels">
             <div style={{ height: 300, width: '100%' }}>
-              <AreaChart areaKeys={['A']} data={defaultData} xLabel="Sample Data" yLabel="Values" />
+              <ChromaticAreaChart areaKeys={['A']} data={defaultData} xLabel="Sample Data" yLabel="Values" />
             </div>
           </StoryVariation>
 
           <StoryVariation label="With Legend">
             <div style={{ height: 300, width: '100%' }}>
-              <AreaChart areaKeys={['A', 'B']} data={largerDataset} showLegend />
+              <ChromaticAreaChart areaKeys={['A', 'B']} data={largerDataset} showLegend />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Custom Colors">
             <div style={{ height: 300, width: '100%' }}>
-              <AreaChart areaKeys={['A', 'B']} areaProps={{ fillOpacity: 0.6 }} colors={['#FF0000', '#00FF00']} data={largerDataset} />
+              <ChromaticAreaChart areaKeys={['A', 'B']} areaProps={{ fillOpacity: 0.6 }} colors={['#FF0000', '#00FF00']} data={largerDataset} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="With Reference Line">
             <div style={{ height: 300, width: '100%' }}>
-              <AreaChart areaKeys={['A']} data={defaultData} yReferenceValue={18} />
+              <ChromaticAreaChart areaKeys={['A']} data={defaultData} yReferenceValue={18} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Large Dataset">
             <div style={{ height: 300, width: '100%' }}>
-              <AreaChart areaKeys={['A', 'B', 'C', 'D', 'E', 'F']} areaProps={{ fillOpacity: 0.6 }} data={largerDatasetWith18Keys} />
+              <ChromaticAreaChart areaKeys={['A', 'B', 'C', 'D', 'E', 'F']} areaProps={{ fillOpacity: 0.6 }} data={largerDatasetWith18Keys} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Percentage Data">
             <div style={{ height: 300, width: '100%' }}>
-              <AreaChart
+              <ChromaticAreaChart
                 areaKeys={['A']}
                 colors={['#225479']}
                 data={percentageData}
@@ -151,7 +157,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Custom Tooltip">
             <div style={{ height: 300, width: '100%' }}>
-              <AreaChart
+              <ChromaticAreaChart
                 areaKeys={['A']}
                 data={defaultData}
                 tooltipProps={{
@@ -173,7 +179,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Fixed Dimensions">
             <div style={{ height: 250, width: '100%' }}>
-              <AreaChart areaKeys={['A']} data={defaultData} height={200} width={400} />
+              <ChromaticAreaChart areaKeys={['A']} data={defaultData} height={200} width={400} />
             </div>
           </StoryVariation>
         </ThemeProvider>

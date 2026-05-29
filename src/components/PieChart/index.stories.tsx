@@ -7,8 +7,10 @@
 
 import { Box, Typography } from '@mui/material';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 import { Pie } from 'recharts';
 
+import { CHROMATIC_RECHARTS_ANIMATION_PROPS } from '../../../.storybook/chromatic';
 import { StoryVariation } from '~/components/StoryVariation';
 import ThemeProvider from '~/components/ThemeProvider';
 import { createThemeStory } from '~/helpers/createThemeStory';
@@ -19,6 +21,10 @@ import { defaultData, moreOptionsData } from './mocks';
 import { HighlightComponentType } from './types';
 
 import { PieChart, PieChartProps } from '.';
+
+const ChromaticPieChart = ({ pieProps, ...props }: PieChartProps): React.ReactElement => (
+  <PieChart {...props} pieProps={{ ...CHROMATIC_RECHARTS_ANIMATION_PROPS, ...pieProps }} />
+);
 
 export default {
   args: {
@@ -82,31 +88,31 @@ const themeStories = ThemesArray.reduce(
         <ThemeProvider theme={theme}>
           <StoryVariation label="Default Pie Chart">
             <div style={{ height: 400, width: '100%' }}>
-              <PieChart data={defaultData} />
+              <ChromaticPieChart data={defaultData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Custom Colors">
             <div style={{ height: 400, width: '100%' }}>
-              <PieChart colors={['#FF0000', '#00FF00', '#0000FF', '#FFFF00']} data={defaultData} />
+              <ChromaticPieChart colors={['#FF0000', '#00FF00', '#0000FF', '#FFFF00']} data={defaultData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="With Title">
             <div style={{ height: 400, width: '100%' }}>
-              <PieChart data={defaultData} titleProps={{ title: '2021 Students as of 4/6/2021' }} />
+              <ChromaticPieChart data={defaultData} titleProps={{ title: '2021 Students as of 4/6/2021' }} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="More Than 4 Options">
             <div style={{ height: 400, width: '100%' }}>
-              <PieChart data={moreOptionsData} />
+              <ChromaticPieChart data={moreOptionsData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="With Highlight">
             <div style={{ height: 400, width: '100%' }}>
-              <PieChart
+              <ChromaticPieChart
                 data={moreOptionsData}
                 HighlightComponent={
                   (({ payload, availableViewBoxDimension }) => (
@@ -122,7 +128,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Pie Within A Pie">
             <div style={{ height: 400, width: '100%' }}>
-              <PieChart data={defaultData} legendProps={{ align: 'right' }}>
+              <ChromaticPieChart data={defaultData} legendProps={{ align: 'right' }}>
                 <Pie
                   data={[
                     { name: 'Group A', value: 400 },
@@ -132,15 +138,16 @@ const themeStories = ThemesArray.reduce(
                   ]}
                   dataKey="value"
                   fill="#8884d8"
+                  {...CHROMATIC_RECHARTS_ANIMATION_PROPS}
                   outerRadius="70%"
                 />
-              </PieChart>
+              </ChromaticPieChart>
             </div>
           </StoryVariation>
 
           <StoryVariation label="Custom Tooltip">
             <div style={{ height: 400, width: '100%' }}>
-              <PieChart
+              <ChromaticPieChart
                 data={defaultData}
                 tooltipProps={{
                   content: ({ active, payload }) => {
@@ -161,7 +168,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Different Pie Props">
             <div style={{ height: 400, width: '100%' }}>
-              <PieChart
+              <ChromaticPieChart
                 data={defaultData}
                 pieProps={{
                   endAngle: 460,
@@ -175,13 +182,13 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="With Legend">
             <div style={{ height: 400, width: '100%' }}>
-              <PieChart data={defaultData} legendProps={{ layout: 'horizontal' }} />
+              <ChromaticPieChart data={defaultData} legendProps={{ layout: 'horizontal' }} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Fixed Dimensions">
             <div style={{ height: 600, width: '100%' }}>
-              <PieChart data={defaultData} height={600} pieProps={{ innerRadius: 230, outerRadius: 260 }} width={800} />
+              <ChromaticPieChart data={defaultData} height={600} pieProps={{ innerRadius: 230, outerRadius: 260 }} width={800} />
             </div>
           </StoryVariation>
         </ThemeProvider>
