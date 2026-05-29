@@ -6,9 +6,8 @@
  */
 
 import * as locales from '@mui/material/locale';
-import { createTheme, ThemeProvider as MuiThemeProvider, StyledEngineProvider, Theme } from '@mui/material/styles';
-import { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles/ThemeProvider';
-import { FC, ReactElement } from 'react';
+import { createTheme, ThemeProvider as MuiThemeProvider, StyledEngineProvider, Theme, ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles';
+import { FC, ReactElement, ReactNode } from 'react';
 
 import { THEME_ENCOURA } from '~/styles/themeEncoura';
 import { THEME_ENCOURA_CLASSIC } from '~/styles/themeEncouraClassic';
@@ -16,6 +15,7 @@ import { THEME_ENCOURAGE } from '~/styles/themeEncourage';
 import { THEME_ENCOURAGE_E4E } from '~/styles/themeEncourageE4E';
 
 export interface ThemeProviderProps extends MuiThemeProviderProps {
+  children?: ReactNode;
   theme: 'ENCOURA' | 'ENCOURA_CLASSIC' | 'ENCOURAGE' | 'ENCOURAGE_E4E' | Theme;
   locale?:
     | 'azAZ'

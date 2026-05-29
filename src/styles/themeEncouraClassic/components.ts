@@ -8,7 +8,7 @@
 import { common, grey } from '@mui/material/colors';
 import { listItemTextClasses } from '@mui/material/ListItemText';
 import { Components } from '@mui/material/styles';
-import { IconProps } from '@mui/x-data-grid/models/gridBaseSlots';
+import { BaseSlots } from '@mui/x-data-grid/internals';
 import Color from 'color';
 import ChevronDown from 'mdi-material-ui/ChevronDown';
 import FilterVariant from 'mdi-material-ui/FilterVariant';
@@ -23,6 +23,8 @@ import spacing from './spacing';
 import TYPOGRAPHY from './typography';
 
 import type {} from '@mui/x-data-grid/themeAugmentation';
+
+type IconProps = BaseSlots.IconProps;
 
 export const components: Components = {
   [DLS_COMPONENT_NAMES.AREA_CHART]: {
