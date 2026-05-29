@@ -6,7 +6,7 @@
  */
 
 import { Box, Button, Paper, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import CheckIcon from 'mdi-material-ui/Check';
 import ChevronLeftIcon from 'mdi-material-ui/ChevronLeft';
 import ChevronRightIcon from 'mdi-material-ui/ChevronRight';

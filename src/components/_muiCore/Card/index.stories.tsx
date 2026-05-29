@@ -6,7 +6,7 @@
  */
 
 import { Avatar, Button, IconButton, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import MoreVertIcon from 'mdi-material-ui/DotsVertical';
 import FavoriteIcon from 'mdi-material-ui/Heart';
 import ShareIcon from 'mdi-material-ui/Share';

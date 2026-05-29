@@ -5,16 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type { StorybookConfig } from '@storybook/react-webpack5';
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import type { StorybookConfig } from '@storybook/react-vite';
+
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
-  addons: [
-    '@storybook/addon-a11y',
-    '@storybook/addon-docs',
-    '@storybook/addon-links',
-    '@storybook/addon-webpack5-compiler-swc',
-  ],
+  addons: ['@storybook/addon-a11y', '@storybook/addon-docs', '@storybook/addon-links'],
   core: {
     disableTelemetry: true,
   },
@@ -22,7 +21,7 @@ const config: StorybookConfig = {
     defaultName: 'Documentation',
   },
   features: {},
-  framework: '@storybook/react-webpack5',
+  framework: '@storybook/react-vite',
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)', '../src/**/*.mdx'],
   staticDirs: ['../public'],
   typescript: {
@@ -34,21 +33,27 @@ const config: StorybookConfig = {
     },
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
+      exclude: ['**/*.stories.tsx', '**/.storybook/**'],
       shouldExtractLiteralValuesFromEnum: true,
       shouldExtractValuesFromUnion: false,
       shouldRemoveUndefinedFromOptional: true,
       skipChildrenPropWithoutDoc: false,
     },
   },
-  webpackFinal: async config => {
-    if (config.resolve) {
-      config.resolve.plugins = [
-        ...(config.resolve.plugins || []),
-        new TsconfigPathsPlugin({
-          extensions: config.resolve.extensions,
-        }),
-      ];
-    }
+  viteFinal: async config => {
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      src: path.resolve(dirname, '../src'),
+      '~': path.resolve(dirname, '../src'),
+    };
+    config.define = {
+      ...config.define,
+      'process.env': {
+        ...Object.fromEntries(Object.entries(process.env).filter(([key]) => key.startsWith('STORYBOOK_'))),
+      },
+    };
+
     return config;
   },
 };

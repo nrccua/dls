@@ -6,7 +6,7 @@
  */
 
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import ChevronDoubleLeftIcon from 'mdi-material-ui/ChevronDoubleLeft';
 import ChevronDoubleRightIcon from 'mdi-material-ui/ChevronDoubleRight';
 import ChevronLeftIcon from 'mdi-material-ui/ChevronLeft';

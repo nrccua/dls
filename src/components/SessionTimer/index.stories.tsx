@@ -6,7 +6,7 @@
  */
 
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
-import { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
 import dayjs from 'dayjs';
 import round from 'lodash/round';
 import pluralize from 'pluralize';

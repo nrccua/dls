@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import FormatAlignCenterIcon from 'mdi-material-ui/FormatAlignCenter';
 import FormatAlignJustifyIcon from 'mdi-material-ui/FormatAlignJustify';
 import FormatAlignLeftIcon from 'mdi-material-ui/FormatAlignLeft';

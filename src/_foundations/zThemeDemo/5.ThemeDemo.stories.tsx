@@ -44,7 +44,7 @@ import {
   TypographyProps,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
 import sortBy from 'lodash/sortBy';
 import MailIcon from 'mdi-material-ui/Mailbox';
 import Menu from 'mdi-material-ui/Menu';

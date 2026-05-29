@@ -7,7 +7,7 @@
 
 import { Grid, TextField, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
 import ThemeProvider from '~/components/ThemeProvider';

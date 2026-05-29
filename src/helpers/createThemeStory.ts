@@ -6,7 +6,7 @@
  */
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { StoryObj } from '@storybook/react-webpack5';
+import { StoryObj } from '@storybook/react-vite';
 
 interface ICreateThemeStoryOptions<T> {
   args?: T;

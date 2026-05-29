@@ -6,7 +6,7 @@
  */
 
 import { Button, IconButton, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import Menu from 'mdi-material-ui/Menu';
 
 import { StoryVariation } from '~/components/StoryVariation';

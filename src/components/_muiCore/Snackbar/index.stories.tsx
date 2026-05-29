@@ -6,7 +6,7 @@
  */
 
 import { Button, IconButton } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import CloseIcon from 'mdi-material-ui/Close';
 import { ReactNode, useState } from 'react';
 

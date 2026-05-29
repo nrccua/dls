@@ -6,7 +6,7 @@
  */
 
 import { Button, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import ExpandMoreIcon from 'mdi-material-ui/ChevronDown';
 import SaveIcon from 'mdi-material-ui/ContentSave';
 import DeleteIcon from 'mdi-material-ui/Delete';
