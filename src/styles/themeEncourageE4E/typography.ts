@@ -5,8 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { TypographyVariantsOptions } from '@mui/material/styles';
-import { TypographyStyleOptions } from '@mui/material/styles/createTypography';
+import { TypographyStyle, TypographyVariantsOptions } from '@mui/material/styles';
 
 import palette from './palette';
 
@@ -43,6 +42,8 @@ export interface IFontSize {
 }
 export const BASE_FONT_SIZE: IFontSize = { fontSize: 16, lineHeight: 24 / 16 };
 export const INPUT_FONT_SIZE: IFontSize = { fontSize: 16, lineHeight: 20 / 16 };
+
+type TypographyStyleOptions = TypographyStyle;
 
 export type CustomTypographyVariantsOptions = TypographyVariantsOptions & {
   body1Strong: TypographyStyleOptions;
