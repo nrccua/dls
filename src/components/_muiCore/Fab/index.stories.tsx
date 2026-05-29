@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import AddIcon from 'mdi-material-ui/Plus';
 
 import { StoryVariation } from '~/components/StoryVariation';

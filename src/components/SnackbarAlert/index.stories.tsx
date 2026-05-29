@@ -8,7 +8,7 @@
 /* eslint-disable react/require-default-props */
 
 import { Button, Grid } from '@mui/material';
-import { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
 import startCase from 'lodash/startCase';
 import { VariantType } from 'notistack';
 import { FC, ReactElement, useState } from 'react';

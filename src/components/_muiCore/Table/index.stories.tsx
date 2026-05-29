@@ -6,7 +6,7 @@
  */
 
 import { Avatar, Box, Chip, Collapse, IconButton, Paper, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import ExpandMoreIcon from 'mdi-material-ui/ChevronDown';
 import ExpandLessIcon from 'mdi-material-ui/ChevronUp';
 import DeleteIcon from 'mdi-material-ui/Delete';

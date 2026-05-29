@@ -6,7 +6,7 @@
  */
 
 import { DataGridProps, GridColDef, GridToolbar } from '@mui/x-data-grid';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import constant from 'lodash/constant';
 
 import { StoryVariation } from '~/components/StoryVariation';

@@ -6,7 +6,7 @@
  */
 
 import { MenuItem, TextField } from '@mui/material';
-import { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
 import { FC, useState } from 'react';
 
 import { StoryVariation } from '~/components/StoryVariation';

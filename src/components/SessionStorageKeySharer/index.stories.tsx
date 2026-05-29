@@ -6,7 +6,7 @@
  */
 
 import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
-import { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
 import JSONParseSafe from 'json-parse-safe';
 import get from 'lodash/get';
 import { useEffect, useState } from 'react';

@@ -6,7 +6,7 @@
  */
 
 import { Button, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import React, { useState } from 'react';
 
 import { StoryVariation } from '~/components/StoryVariation';

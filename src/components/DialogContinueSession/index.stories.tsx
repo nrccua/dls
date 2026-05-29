@@ -6,7 +6,7 @@
  */
 
 import { Button } from '@mui/material';
-import { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
 import dayjs from 'dayjs';
 import noop from 'lodash/noop';
 import { ReactElement, useState } from 'react';

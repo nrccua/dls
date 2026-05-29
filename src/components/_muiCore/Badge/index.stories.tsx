@@ -6,7 +6,7 @@
  */
 
 import { Avatar, Button, IconButton } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import NotificationsIcon from 'mdi-material-ui/Bell';
 import ShoppingCartIcon from 'mdi-material-ui/Cart';
 import MailIcon from 'mdi-material-ui/Email';

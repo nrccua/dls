@@ -6,7 +6,7 @@
  */
 
 import { Box, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import PersonIcon from 'mdi-material-ui/Account';
 import FavoriteIcon from 'mdi-material-ui/Heart';
 import PhoneIcon from 'mdi-material-ui/Phone';

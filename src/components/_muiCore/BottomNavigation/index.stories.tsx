@@ -6,7 +6,7 @@
  */
 
 import { Box, Paper } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import PersonIcon from 'mdi-material-ui/Account';
 import NotificationsIcon from 'mdi-material-ui/Bell';
 import SettingsIcon from 'mdi-material-ui/Cog';

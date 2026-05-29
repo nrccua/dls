@@ -6,7 +6,7 @@
  */
 
 import { Link, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import ChevronRightIcon from 'mdi-material-ui/ChevronRight';
 import HomeIcon from 'mdi-material-ui/Home';
 

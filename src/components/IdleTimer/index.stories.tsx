@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
 import round from 'lodash/round';
 import pluralize from 'pluralize';
 import { ReactElement } from 'react';

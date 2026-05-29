@@ -6,7 +6,7 @@
  */
 
 import { Box, Typography } from '@mui/material';
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Pie } from 'recharts';
 
 import { StoryVariation } from '~/components/StoryVariation';

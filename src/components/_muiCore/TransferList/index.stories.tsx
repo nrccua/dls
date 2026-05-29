@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import ChevronDoubleLeftIcon from 'mdi-material-ui/ChevronDoubleLeft';
 import ChevronDoubleRightIcon from 'mdi-material-ui/ChevronDoubleRight';
 import ChevronLeftIcon from 'mdi-material-ui/ChevronLeft';

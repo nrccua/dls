@@ -8,12 +8,12 @@
 import { CssBaseline } from '@mui/material';
 import * as locales from '@mui/material/locale';
 import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks';
-import { Preview } from '@storybook/react-webpack5';
+import { Preview } from '@storybook/react-vite';
 import React from 'react';
 
 import { ThemeProvider } from '../src/components/ThemeProvider';
 
-global.React = React;
+(globalThis as typeof globalThis & { React: typeof React }).React = React;
 
 const preview: Preview = {
   decorators: [
