@@ -13,7 +13,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
-  addons: ['@storybook/addon-a11y', '@storybook/addon-docs', '@storybook/addon-links'],
+  addons: ['@storybook/addon-a11y', '@storybook/addon-docs', '@storybook/addon-links', '@storybook/addon-vitest'],
   core: {
     disableTelemetry: true,
   },

@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { describe, expect, it } from 'vitest';
+
 import px from '.';
 
 describe('px', () => {

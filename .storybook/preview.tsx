@@ -64,6 +64,8 @@ const preview: Preview = {
   },
   initialGlobals: {
     backgrounds: { value: 'light' },
+    language: 'enUS',
+    theme: 'ENCOURAGE_E4E',
   },
 };
 

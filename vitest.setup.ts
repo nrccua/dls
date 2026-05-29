@@ -8,13 +8,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { configure } from '@testing-library/dom';
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';
 import fetch from 'isomorphic-fetch';
-import { TextDecoder, TextEncoder } from 'util';
+import { TextDecoder, TextEncoder } from 'node:util';
 
-global.fetch = fetch;
-(global as any).TextDecoder = TextDecoder;
-(global as any).TextEncoder = TextEncoder;
+(globalThis as typeof globalThis & { fetch: typeof fetch }).fetch = fetch;
+(globalThis as typeof globalThis & { TextDecoder: typeof TextDecoder }).TextDecoder = TextDecoder;
+(globalThis as typeof globalThis & { TextEncoder: typeof TextEncoder }).TextEncoder = TextEncoder;
 
 configure({
   computedStyleSupportsPseudoElements: true,
