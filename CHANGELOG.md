@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/nrccua/dls/compare/v2.1.1...v2.1.2) (2026-06-04)
+
+
+### Bug Fixes
+
+* Stabilize Chromatic chart and map stories ([b641ed5](https://github.com/nrccua/dls/commit/b641ed529bbda8ac8c959e5f619dbf2124a53fd5))
+
 ## [2.1.1](https://github.com/nrccua/dls/compare/v2.1.0...v2.1.1) (2025-11-17)
 
 
