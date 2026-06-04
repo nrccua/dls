@@ -44,4 +44,11 @@ module.exports = {
       ],
     ],
   },
+  settings: {
+    jest: {
+      // Jest removed; version hint keeps eslint-plugin-jest inherited from
+      // @encoura/eslint-config from crashing. Remove once shared config drops Jest.
+      version: 30,
+    },
+  },
 };
