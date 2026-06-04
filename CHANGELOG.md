@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/nrccua/dls/compare/v2.1.2...v2.1.3) (2026-06-04)
+
+
+### Bug Fixes
+
+* Shim Jest lint version ([bbcacf0](https://github.com/nrccua/dls/commit/bbcacf00a4a6e9f4d36f9c4ee02b3c57b606f689))
+
 ## [2.1.2](https://github.com/nrccua/dls/compare/v2.1.1...v2.1.2) (2026-06-04)
 
 
