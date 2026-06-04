@@ -7,6 +7,7 @@
 
 import { Meta, StoryObj } from '@storybook/react-vite';
 
+import { CHROMATIC_MAP_PARAMETERS, CHROMATIC_MAP_PLAY, CHROMATIC_MAP_PROPS } from '../../../.storybook/chromatic';
 import { StoryVariation } from '~/components/StoryVariation';
 import ThemeProvider from '~/components/ThemeProvider';
 import { createThemeStory } from '~/helpers/createThemeStory';
@@ -82,6 +83,7 @@ const themeStories = ThemesArray.reduce(
                 data={defaultData}
                 geoJSONPath="maps/counties.json"
                 mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''}
+                mapProps={CHROMATIC_MAP_PROPS}
                 processDataFn={defaultProcessDataFn}
               />
             </div>
@@ -93,7 +95,7 @@ const themeStories = ThemesArray.reduce(
                 data={defaultData}
                 geoJSONPath="maps/counties.json"
                 mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''}
-                mapProps={{ color: '#FF0000' }}
+                mapProps={{ ...CHROMATIC_MAP_PROPS, color: '#FF0000' }}
                 processDataFn={defaultProcessDataFn}
               />
             </div>
@@ -105,6 +107,7 @@ const themeStories = ThemesArray.reduce(
                 data={defaultData}
                 geoJSONPath="maps/counties.json"
                 mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''}
+                mapProps={CHROMATIC_MAP_PROPS}
                 processDataFn={defaultProcessDataFn}
                 selectedCounty={['36103']}
               />
@@ -117,6 +120,7 @@ const themeStories = ThemesArray.reduce(
                 data={defaultData}
                 geoJSONPath="maps/counties.json"
                 mapboxAccessToken={process.env.STORYBOOK_MAPBOX_ACCESS_TOKEN || ''}
+                mapProps={CHROMATIC_MAP_PROPS}
                 processDataFn={defaultProcessDataFn}
                 selectedCounty={['36103', '09001', '36027', '25025']}
               />
@@ -131,7 +135,17 @@ const themeStories = ThemesArray.reduce(
   {} as Record<string, Story>,
 );
 
-export const ThemeEncoura = { ...themeStories.ENCOURA, name: 'Theme: Encoura', parameters: { chromatic: { delay: 1500 } } };
-export const ThemeEncouraClassic = { ...themeStories.ENCOURA_CLASSIC, name: 'Theme: Encoura Classic', parameters: { chromatic: { delay: 1500 } } };
-export const ThemeEncourage = { ...themeStories.ENCOURAGE, name: 'Theme: Encourage', parameters: { chromatic: { delay: 1500 } } };
-export const ThemeEncourageE4E = { ...themeStories.ENCOURAGE_E4E, name: 'Theme: Encourage E4E', parameters: { chromatic: { delay: 1500 } } };
+export const ThemeEncoura = { ...themeStories.ENCOURA, name: 'Theme: Encoura', parameters: CHROMATIC_MAP_PARAMETERS, play: CHROMATIC_MAP_PLAY };
+export const ThemeEncouraClassic = {
+  ...themeStories.ENCOURA_CLASSIC,
+  name: 'Theme: Encoura Classic',
+  parameters: CHROMATIC_MAP_PARAMETERS,
+  play: CHROMATIC_MAP_PLAY,
+};
+export const ThemeEncourage = { ...themeStories.ENCOURAGE, name: 'Theme: Encourage', parameters: CHROMATIC_MAP_PARAMETERS, play: CHROMATIC_MAP_PLAY };
+export const ThemeEncourageE4E = {
+  ...themeStories.ENCOURAGE_E4E,
+  name: 'Theme: Encourage E4E',
+  parameters: CHROMATIC_MAP_PARAMETERS,
+  play: CHROMATIC_MAP_PLAY,
+};

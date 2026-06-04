@@ -51,6 +51,7 @@ const config: StorybookConfig = {
       ...config.define,
       'process.env': {
         ...Object.fromEntries(Object.entries(process.env).filter(([key]) => key.startsWith('STORYBOOK_'))),
+        STORYBOOK_CHROMATIC: process.env.CHROMATIC === 'true' ? 'true' : 'false',
       },
     };
 
