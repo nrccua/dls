@@ -10,8 +10,8 @@
 import { SortDirection } from '~/types';
 
 export const SORT_DIRECTION_TYPES: Record<SortDirection, SortDirection> = {
-  ASCENDING: 'ASCENDING' as SortDirection,
-  DESCENDING: 'DESCENDING' as SortDirection,
+  ASCENDING: 'ASCENDING',
+  DESCENDING: 'DESCENDING',
 };
 
 export default SORT_DIRECTION_TYPES;
