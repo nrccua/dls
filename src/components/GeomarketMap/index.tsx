@@ -119,7 +119,7 @@ export const GeomarketMap: React.FC<GeomarketMapProps> = ({
               },
               {
                 title: 'Code',
-                value: finalHoverInfo.feature.id as string,
+                value: finalHoverInfo.feature.id,
               },
               {
                 title: 'Volume',
