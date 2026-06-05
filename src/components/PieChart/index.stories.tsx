@@ -10,7 +10,7 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import type React from 'react';
 import { Pie } from 'recharts';
 
-import { CHROMATIC_RECHARTS_ANIMATION_PROPS } from '../../../.storybook/chromatic';
+import { CHROMATIC_RECHARTS_ANIMATION_PROPS, CHROMATIC_RECHARTS_RESPONSIVE_CONTAINER_PROPS } from '../../../.storybook/chromatic';
 import { StoryVariation } from '~/components/StoryVariation';
 import ThemeProvider from '~/components/ThemeProvider';
 import { createThemeStory } from '~/helpers/createThemeStory';
@@ -22,8 +22,12 @@ import { HighlightComponentType } from './types';
 
 import { PieChart, PieChartProps } from '.';
 
-const ChromaticPieChart = ({ pieProps, ...props }: PieChartProps): React.ReactElement => (
-  <PieChart {...props} pieProps={{ ...CHROMATIC_RECHARTS_ANIMATION_PROPS, ...pieProps }} />
+const ChromaticPieChart = ({ pieProps, responsiveContainerProps, ...props }: PieChartProps): React.ReactElement => (
+  <PieChart
+    {...props}
+    pieProps={{ ...pieProps, ...CHROMATIC_RECHARTS_ANIMATION_PROPS }}
+    responsiveContainerProps={{ ...responsiveContainerProps, ...CHROMATIC_RECHARTS_RESPONSIVE_CONTAINER_PROPS } as PieChartProps['responsiveContainerProps']}
+  />
 );
 
 export default {

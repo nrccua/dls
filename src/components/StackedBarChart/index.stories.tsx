@@ -6,7 +6,9 @@
  */
 
 import { Meta, StoryObj } from '@storybook/react-vite';
+import type React from 'react';
 
+import { CHROMATIC_RECHARTS_ANIMATION_PROPS, CHROMATIC_RECHARTS_RESPONSIVE_CONTAINER_PROPS } from '../../../.storybook/chromatic';
 import { StoryVariation } from '~/components/StoryVariation';
 import ThemeProvider from '~/components/ThemeProvider';
 import { createThemeStory } from '~/helpers/createThemeStory';
@@ -16,6 +18,20 @@ import { ThemesArray } from '~/styles/themes';
 import { defaultBarKeys, defaultData, longBarKeys, longLabelData, longSubLabelData } from './mocks';
 
 import { StackedBarChart, StackedBarChartProps } from '.';
+
+const ChromaticStackedBarChart = ({ barChartProps, barProps, ...props }: StackedBarChartProps): React.ReactElement => (
+  <StackedBarChart
+    {...props}
+    barChartProps={{
+      ...barChartProps,
+      responsiveContainerProps: {
+        ...barChartProps?.responsiveContainerProps,
+        ...CHROMATIC_RECHARTS_RESPONSIVE_CONTAINER_PROPS,
+      },
+    }}
+    barProps={{ ...barProps, ...CHROMATIC_RECHARTS_ANIMATION_PROPS } as StackedBarChartProps['barProps']}
+  />
+);
 
 export default {
   args: {
@@ -81,25 +97,25 @@ const themeStories = ThemesArray.reduce(
         <ThemeProvider theme={theme}>
           <StoryVariation label="Default Stacked Bar Chart">
             <div style={{ height: 400, width: '100%' }}>
-              <StackedBarChart barKeys={defaultBarKeys} data={defaultData} />
+              <ChromaticStackedBarChart barKeys={defaultBarKeys} data={defaultData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Custom Colors">
             <div style={{ height: 400, width: '100%' }}>
-              <StackedBarChart barKeys={defaultBarKeys} colors={['#FF0000', '#00FF00', '#0000FF']} data={defaultData} />
+              <ChromaticStackedBarChart barKeys={defaultBarKeys} colors={['#FF0000', '#00FF00', '#0000FF']} data={defaultData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Custom Sublabels">
             <div style={{ height: 400, width: '100%' }}>
-              <StackedBarChart barKeys={defaultBarKeys} data={defaultData} subLabels={['2019 test', '2020 test', '2021 test']} />
+              <ChromaticStackedBarChart barKeys={defaultBarKeys} data={defaultData} subLabels={['2019 test', '2020 test', '2021 test']} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Hiding Bar Label Value">
             <div style={{ height: 400, width: '100%' }}>
-              <StackedBarChart
+              <ChromaticStackedBarChart
                 barChartProps={{ subLabelWidth: 130 }}
                 barKeys={defaultBarKeys}
                 data={[
@@ -122,13 +138,13 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Ungrouped Stacked Bar Chart">
             <div style={{ height: 400, width: '100%' }}>
-              <StackedBarChart barKeys={[['2019', '2019a', '2019b']]} data={defaultData} />
+              <ChromaticStackedBarChart barKeys={[['2019', '2019a', '2019b']]} data={defaultData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Vertical Bar Chart">
             <div style={{ height: 400, width: '100%' }}>
-              <StackedBarChart
+              <ChromaticStackedBarChart
                 barChartProps={{
                   chartProps: { layout: 'horizontal', margin: { left: 0 } },
                   maxHeight: 'auto',
@@ -166,25 +182,25 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="Long Labels">
             <div style={{ height: 400, width: '100%' }}>
-              <StackedBarChart barKeys={defaultBarKeys} data={longLabelData} />
+              <ChromaticStackedBarChart barKeys={defaultBarKeys} data={longLabelData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Long Sublabels">
             <div style={{ height: 400, width: '100%' }}>
-              <StackedBarChart barKeys={longBarKeys} data={longSubLabelData} />
+              <ChromaticStackedBarChart barKeys={longBarKeys} data={longSubLabelData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Custom Bar Props">
             <div style={{ height: 400, width: '100%' }}>
-              <StackedBarChart barKeys={defaultBarKeys} data={defaultData} />
+              <ChromaticStackedBarChart barKeys={defaultBarKeys} data={defaultData} />
             </div>
           </StoryVariation>
 
           <StoryVariation label="Fixed Dimensions">
             <div style={{ height: 350, width: '100%' }}>
-              <StackedBarChart barKeys={defaultBarKeys} data={defaultData} />
+              <ChromaticStackedBarChart barKeys={defaultBarKeys} data={defaultData} />
             </div>
           </StoryVariation>
         </ThemeProvider>
