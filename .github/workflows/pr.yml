@@ -17,13 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
       - name: Install dependencies
         run: npm ci --ignore-scripts
       - name: Test
@@ -36,27 +36,27 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['22']
+        node: ['24']
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
       - name: Cache node modules
         id: cache-nodemodules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         env:
           cache-name: cache-node-modules
         with:
           path: |
             ~/.npm
             node_modules
-          key: ${{ runner.os }}-test-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ matrix.node }}-test-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-test-${{ env.cache-name }}-
-            ${{ runner.os }}-test-
+            ${{ runner.os }}-node-${{ matrix.node }}-test-${{ env.cache-name }}-
+            ${{ runner.os }}-node-${{ matrix.node }}-test-
             ${{ runner.os }}-
       - name: Verify the cache
         run: npm cache verify
