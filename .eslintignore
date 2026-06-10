@@ -1,6 +1,0 @@
-dist
-node_modules
-src/icons
-storybook-static
-jest.config.ts
-jest.setup.ts
