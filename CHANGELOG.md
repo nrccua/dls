@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/nrccua/dls/compare/v2.1.3...v3.0.0) (2026-06-30)
+
+
+### Features
+
+* [AP-6397]: trigger major release for chart removals ([04acce0](https://github.com/nrccua/dls/commit/04acce059a5b61f1645ac1ffacd12829db8e1723))
+
+
+### BREAKING CHANGES
+
+* DLS no longer exports Recharts-based AreaChart, BarChart, LineChart, OverlappedBarChart, PieChart, ScatterPlot, or StackedBarChart components. Consumers should migrate those chart imports to EEL or product-owned chart wrappers.
+
 ## [2.1.3](https://github.com/nrccua/dls/compare/v2.1.2...v2.1.3) (2026-06-04)
 
 
