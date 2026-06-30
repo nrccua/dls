@@ -15,49 +15,14 @@ import THEME_ENCOURA_CLASSIC from '~/styles/themeEncouraClassic';
 import COLORS, { secondaryMain } from './colors';
 
 const COMPONENTS: Components = {
-  [DLS_COMPONENT_NAMES.AREA_CHART]: {
-    defaultProps: {
-      colors: COLORS.CHART.primary,
-    },
-  },
-  [DLS_COMPONENT_NAMES.BAR_CHART]: {
-    defaultProps: {
-      colors: COLORS.CHART.primary,
-    },
-  },
   [DLS_COMPONENT_NAMES.HEAT_MAP]: {
     defaultProps: {
       color: secondaryMain,
     },
   },
-  [DLS_COMPONENT_NAMES.LINE_CHART]: {
-    defaultProps: {
-      colors: COLORS.CHART.primary,
-    },
-  },
   [DLS_COMPONENT_NAMES.MAP]: {
     defaultProps: {
       color: secondaryMain,
-    },
-  },
-  [DLS_COMPONENT_NAMES.OVERLAPPED_BAR_CHART]: {
-    defaultProps: {
-      colors: COLORS.CHART.quaternary,
-    },
-  },
-  [DLS_COMPONENT_NAMES.PIE_CHART]: {
-    defaultProps: {
-      colors: COLORS.CHART.tertiary,
-    },
-  },
-  [DLS_COMPONENT_NAMES.SCATTER_PLOT]: {
-    defaultProps: {
-      color: COLORS.CHART.secondary[1],
-    },
-  },
-  [DLS_COMPONENT_NAMES.STACKED_BAR_CHART]: {
-    defaultProps: {
-      colors: COLORS.CHART.primary,
     },
   },
   MuiAvatar: {

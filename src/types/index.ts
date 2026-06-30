@@ -7,7 +7,6 @@
 
 import { Theme, ThemeOptions } from '@mui/material/styles';
 import { OptionsObject } from 'notistack';
-import { ViewBox } from 'recharts/types/util/types';
 
 export type { OptionsObject };
 
@@ -20,12 +19,6 @@ export interface ICustomDims {
     heights: Record<string, number>;
     widths: Record<string, number>;
   };
-}
-
-export interface ILabelListData {
-  value?: number | string | Array<number | string>;
-  payload?: unknown;
-  parentViewBox?: ViewBox;
 }
 
 export interface IMapDataProps {
@@ -57,12 +50,6 @@ export interface GraphQLError {
   path: string[];
 }
 
-export interface ScatterPlotData {
-  label: string;
-  x: number;
-  y: number;
-}
-
 export interface ServerError {
   extraInfo?: undefined | string;
   graphQLErrors?: [] | string[];
@@ -74,11 +61,6 @@ export interface ServerError {
       errors: GraphQLError[];
     };
   };
-}
-
-export interface TooltipPayloadProps {
-  name: string;
-  value: string | number;
 }
 
 export type VariantType = 'SMALL' | 'X_SMALL';
