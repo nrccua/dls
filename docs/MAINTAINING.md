@@ -43,9 +43,13 @@ reflect the component behaviors that matter most.
 
 ## Chart Components
 
-The current chart components are custom wrappers around Recharts. They should be
-maintained conservatively and treated as deprecation candidates when their fixed
-UX or styling makes them difficult to reuse across products.
+DLS no longer exports custom chart components. MUI X Charts and Recharts are
+both current front-end standards, but chart wrappers tend to encode product data
+shapes, report UX, and visual decisions that are too specific for this package.
 
-For future chart work, evaluate whether MUI X Charts can provide a more flexible
-foundation before adding new custom Recharts-based components to the DLS.
+Keep DLS thin and avoid adding new custom chart wrappers here. When a product
+needs reusable chart abstractions, place them in that product's application
+library or another package with the right ownership boundary. DLS may still host
+reference stories or theme compatibility notes for charting libraries, but those
+examples should not be exported from `src/components/index.ts` or treated as
+public DLS components.
