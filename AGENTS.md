@@ -16,6 +16,23 @@ part of the work.
 - If ownership is unclear, keep the change local and call out the uncertainty
   instead of turning one use case into a design-system pattern.
 
+## Source Of Truth Docs
+
+Use these repo-local docs as the source of truth when a task needs deeper
+guidance:
+
+- [`docs/CONTRIBUTING.md`](./docs/CONTRIBUTING.md): local iteration, package
+  testing, npm scripts, and commit-token rules.
+- [`docs/GUIDE.md`](./docs/GUIDE.md): DLS component design principles,
+  including business-logic decoupling, technology assumptions, MUI usage,
+  theming, and reusable styling patterns.
+- [`docs/STANDARDS.md`](./docs/STANDARDS.md): current front-end technology
+  standards and how those standards evolve.
+- [`docs/ICONS.md`](./docs/ICONS.md): preferred icon sources and custom
+  `SvgIcon` guidance.
+- [`docs/MAINTAINING.md`](./docs/MAINTAINING.md): package scope, MUI reference
+  stories, story coverage expectations, and chart-component boundaries.
+
 ## What DLS Is
 
 - DLS is the public package `@encoura/dls`.
@@ -83,9 +100,10 @@ targeted command.
 - Use higher-level packages or consuming projects for business logic, network
   calls, routing, feature flags, product-specific UX, product data models, or
   one-off workflows.
-- Do not add custom chart wrappers back to DLS. Theme compatibility examples or
-  reference stories are fine, but product chart abstractions belong in a layer
-  with the right ownership boundary.
+- Defer to [`docs/MAINTAINING.md`](./docs/MAINTAINING.md) and
+  [`docs/STANDARDS.md`](./docs/STANDARDS.md) before changing chart guidance.
+  Theme compatibility examples or reference stories are fine, but product chart
+  abstractions belong outside DLS.
 - Keep MUI reference stories documentation-only. `_muiCore` and `_muiX` stories
   should not be exported from `src/components/index.ts` or treated as public
   DLS components.
@@ -116,6 +134,7 @@ targeted command.
 - Prefer DLS and MUI theme values over hard-coded pixels, colors, z-indexes,
   shadows, and typography. Use theme spacing, typography, palette, shape, and
   component slot/class conventions where possible.
+- Follow [`docs/ICONS.md`](./docs/ICONS.md) when adding or changing icons.
 - Use deep lodash imports instead of named imports from `lodash`; lint enforces
   this for bundle-size reasons.
 - Shared UI should account for applicable loading, empty, error, disabled,
