@@ -41,6 +41,16 @@ browser, such as opening menus, selecting rows, confirming dialogs, or validatin
 empty states. Over time, these interactions should help Storybook coverage
 reflect the component behaviors that matter most.
 
+## Map Components
+
+DLS map components are intentionally supported here because they solve a
+generic, widely reused visualization need across product lines. Keep map changes
+focused on reusable props and behavior rather than product-specific data shapes.
+
+Map stories should remain available for local Storybook review, but Chromatic
+snapshots are disabled by design. They depend on Mapbox tile rendering, which is
+not stable enough for pixel-perfect visual regression checks.
+
 ## Chart Components
 
 DLS no longer exports custom chart components. MUI X Charts and Recharts are
