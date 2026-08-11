@@ -15,6 +15,10 @@ export interface LoadingProps {
   circularProgressProps?: CircularProgressProps;
   style?: CSSProperties;
   title?: string;
+  /**
+   * Accessible name announced for the spinner. Defaults to `Loading ...`, and `title` takes
+   * precedence when provided so the announcement matches the visible text.
+   */
   'aria-label'?: string;
 }
 
@@ -27,8 +31,8 @@ export const Loading: FC<LoadingProps> = ({
   title,
   'aria-label': ariaLabel = 'Loading ...',
 }: LoadingProps): ReactElement<LoadingProps> => (
-  <StyledContainer aria-label={title || ariaLabel} data-chromatic="ignore" data-testid="loading" style={style}>
-    <CircularProgress size={24} thickness={4.5} title={title} {...circularProgressProps} />
+  <StyledContainer data-chromatic="ignore" data-testid="loading" style={style}>
+    <CircularProgress aria-label={title || ariaLabel} size={24} thickness={4.5} title={title} {...circularProgressProps} />
 
     {title && <StyledTypography variant="overline">{title}</StyledTypography>}
   </StyledContainer>
