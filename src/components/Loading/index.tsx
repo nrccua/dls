@@ -15,6 +15,10 @@ export interface LoadingProps {
   circularProgressProps?: CircularProgressProps;
   style?: CSSProperties;
   title?: string;
+  /**
+   * Accessible name announced for the spinner. Defaults to `Loading ...`, and `title` takes
+   * precedence when provided so the announcement matches the visible text.
+   */
   'aria-label'?: string;
 }
 
@@ -27,8 +31,15 @@ export const Loading: FC<LoadingProps> = ({
   title,
   'aria-label': ariaLabel = 'Loading ...',
 }: LoadingProps): ReactElement<LoadingProps> => (
-  <StyledContainer aria-label={title || ariaLabel} data-chromatic="ignore" data-testid="loading" style={style}>
-    <CircularProgress size={24} thickness={4.5} title={title} {...circularProgressProps} />
+  <StyledContainer data-chromatic="ignore" data-testid="loading" style={style}>
+    {/*
+      The name belongs on the spinner, not the container. The container is a plain <div> with no
+      role, where ARIA prohibits an accessible name: WebKit exposes one anyway, so it did get
+      announced, but other engines are not required to, and `role="progressbar"` requires a name it
+      was not being given. Naming the spinner announces the same text everywhere and adds the busy
+      state. `circularProgressProps` is spread last so callers can still override.
+    */}
+    <CircularProgress aria-label={title || ariaLabel} size={24} thickness={4.5} title={title} {...circularProgressProps} />
 
     {title && <StyledTypography variant="overline">{title}</StyledTypography>}
   </StyledContainer>
