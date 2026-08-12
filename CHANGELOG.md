@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/nrccua/dls/compare/v3.0.0...v3.0.1) (2026-08-12)
+
+
+### Bug Fixes
+
+* Name the loading spinner instead of its container ([79df950](https://github.com/nrccua/dls/commit/79df95043b7ae10af2f013aa7ea700b7bcc8fb6c))
+
 # [3.0.0](https://github.com/nrccua/dls/compare/v2.1.3...v3.0.0) (2026-06-30)
 
 
