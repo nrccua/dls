@@ -209,9 +209,14 @@ export const warning = {
   900: '#6B5103',
 };
 
+export const militaryDark = '#BFB6A1';
+export const militaryLight = '#F6EFDE';
+
 export const utility = {
   error,
   info,
+  militaryDark,
+  militaryLight,
   restingState: 'rgba(63, 81, 181, 0.5)',
   success,
   warning,
