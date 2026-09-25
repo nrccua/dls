@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/nrccua/dls/compare/v3.0.1...v3.0.2) (2026-09-25)
+
+
+### Bug Fixes
+
+* upgrade dayjs from 1.11.21 to 1.11.23 ([3e54e49](https://github.com/nrccua/dls/commit/3e54e49490d584c6eb10b3df0826ddb4d37657f9))
+
 ## [3.0.1](https://github.com/nrccua/dls/compare/v3.0.0...v3.0.1) (2026-08-12)
 
 
