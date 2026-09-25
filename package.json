@@ -14,7 +14,7 @@
     "color": "^5.0.0",
     "d3-array": "^3.2.4",
     "d3-scale": "^4.0.2",
-    "dayjs": "^1.11.13",
+    "dayjs": "^1.11.23",
     "deepmerge": "^4.3.1",
     "json-parse-safe": "^2.0.0",
     "lodash": "^4.17.21",
