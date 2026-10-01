@@ -25,7 +25,7 @@
     "pluralize": "^8.0.0",
     "ramda": "^0.32.0",
     "react-idle-timer": "^5.7.2",
-    "react-map-gl": "^8.1.0",
+    "react-map-gl": "^8.1.2",
     "react-window": "^1.8.11",
     "validator": "^13.15.15"
   },
