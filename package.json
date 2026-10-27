@@ -52,7 +52,7 @@
     "@storybook/addon-a11y": "10.4.6",
     "@storybook/addon-docs": "10.4.6",
     "@storybook/addon-links": "10.4.6",
-    "@storybook/addon-vitest": "10.4.6",
+    "@storybook/addon-vitest": "10.6.4",
     "@storybook/cli": "10.4.6",
     "@storybook/react-vite": "10.4.6",
     "@testing-library/jest-dom": "6.9.1",
