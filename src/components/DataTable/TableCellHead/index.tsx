@@ -12,7 +12,7 @@ import { CSSProperties, FC, ReactElement } from 'react';
 import SORT_DIRECTION_TYPES from '~/constants/SORT_DIRECTION_TYPES';
 import { SortDirection, SortObject } from '~/types';
 
-import { StyledChevronDown, StyledChevronUp, StyledGrid, StyledTableCell, StyledTypography } from './styles';
+import { StyledChevronDown, StyledChevronUp, StyledStack, StyledTableCell, StyledTypography } from './styles';
 
 export interface TableCellHeadProps extends TableCellProps {
   children: string | ReactElement<unknown>;
@@ -79,7 +79,7 @@ export const TableCellHead: FC<TableCellHeadProps> = ({
       </StyledTypography>
 
       {sortBy && (
-        <StyledGrid container>
+        <StyledStack>
           <StyledChevronUp
             $colorProp={color}
             onClick={(): void => {
@@ -105,7 +105,7 @@ export const TableCellHead: FC<TableCellHeadProps> = ({
             style={getStyleForIcon(SORT_DIRECTION_TYPES.DESCENDING)}
             viewBox="9 7 5 15"
           />
-        </StyledGrid>
+        </StyledStack>
       )}
     </StyledTableCell>
   );

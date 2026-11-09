@@ -54,9 +54,9 @@ export const Documentation: Story = {
     return (
       <Box sx={{ flexGrow: 1, height: 320, transform: 'translateZ(0px)' }}>
         <SpeedDial ariaLabel="SpeedDial example" icon={<SpeedDialIcon />} onClose={handleClose} onOpen={handleOpen} open={open}>
-          <SpeedDialAction icon={<EditIcon />} tooltipTitle="Edit" />
-          <SpeedDialAction icon={<ShareIcon />} tooltipTitle="Share" />
-          <SpeedDialAction icon={<DeleteIcon />} tooltipTitle="Delete" />
+          <SpeedDialAction icon={<EditIcon />} slotProps={{ tooltip: { title: 'Edit' } }} />
+          <SpeedDialAction icon={<ShareIcon />} slotProps={{ tooltip: { title: 'Share' } }} />
+          <SpeedDialAction icon={<DeleteIcon />} slotProps={{ tooltip: { title: 'Delete' } }} />
         </SpeedDial>
       </Box>
     );
@@ -81,9 +81,9 @@ export const PlaygroundStory: Story = {
     return (
       <Box sx={{ flexGrow: 1, height: 320, transform: 'translateZ(0px)' }}>
         <SpeedDial ariaLabel="SpeedDial example" icon={<SpeedDialIcon />} onClose={handleClose} onOpen={handleOpen} open={open}>
-          <SpeedDialAction icon={<EditIcon />} tooltipTitle="Edit" />
-          <SpeedDialAction icon={<ShareIcon />} tooltipTitle="Share" />
-          <SpeedDialAction icon={<DeleteIcon />} tooltipTitle="Delete" />
+          <SpeedDialAction icon={<EditIcon />} slotProps={{ tooltip: { title: 'Edit' } }} />
+          <SpeedDialAction icon={<ShareIcon />} slotProps={{ tooltip: { title: 'Share' } }} />
+          <SpeedDialAction icon={<DeleteIcon />} slotProps={{ tooltip: { title: 'Delete' } }} />
         </SpeedDial>
       </Box>
     );
@@ -100,9 +100,9 @@ const BasicSpeedDial = (): ReactNode => {
   return (
     <Box sx={{ flexGrow: 1, height: 320, transform: 'translateZ(0px)' }}>
       <SpeedDial ariaLabel="SpeedDial example" icon={<SpeedDialIcon />} onClose={handleClose} onOpen={handleOpen} open={open}>
-        <SpeedDialAction icon={<EditIcon />} tooltipTitle="Edit" />
-        <SpeedDialAction icon={<ShareIcon />} tooltipTitle="Share" />
-        <SpeedDialAction icon={<DeleteIcon />} tooltipTitle="Delete" />
+        <SpeedDialAction icon={<EditIcon />} slotProps={{ tooltip: { title: 'Edit' } }} />
+        <SpeedDialAction icon={<ShareIcon />} slotProps={{ tooltip: { title: 'Share' } }} />
+        <SpeedDialAction icon={<DeleteIcon />} slotProps={{ tooltip: { title: 'Delete' } }} />
       </SpeedDial>
     </Box>
   );
@@ -124,9 +124,9 @@ const SpeedDialWithCustomIcon = (): ReactNode => {
         onOpen={handleOpen}
         open={open}
       >
-        <SpeedDialAction icon={<EditIcon />} tooltipTitle="Edit" />
-        <SpeedDialAction icon={<ShareIcon />} tooltipTitle="Share" />
-        <SpeedDialAction icon={<DeleteIcon />} tooltipTitle="Delete" />
+        <SpeedDialAction icon={<EditIcon />} slotProps={{ tooltip: { title: 'Edit' } }} />
+        <SpeedDialAction icon={<ShareIcon />} slotProps={{ tooltip: { title: 'Share' } }} />
+        <SpeedDialAction icon={<DeleteIcon />} slotProps={{ tooltip: { title: 'Delete' } }} />
       </SpeedDial>
     </Box>
   );
@@ -142,9 +142,9 @@ const SpeedDialWithDirection = (): ReactNode => {
   return (
     <Box sx={{ flexGrow: 1, height: 320, transform: 'translateZ(0px)' }}>
       <SpeedDial ariaLabel="SpeedDial with direction" direction="up" icon={<SpeedDialIcon />} onClose={handleClose} onOpen={handleOpen} open={open}>
-        <SpeedDialAction icon={<EditIcon />} tooltipTitle="Edit" />
-        <SpeedDialAction icon={<ShareIcon />} tooltipTitle="Share" />
-        <SpeedDialAction icon={<DeleteIcon />} tooltipTitle="Delete" />
+        <SpeedDialAction icon={<EditIcon />} slotProps={{ tooltip: { title: 'Edit' } }} />
+        <SpeedDialAction icon={<ShareIcon />} slotProps={{ tooltip: { title: 'Share' } }} />
+        <SpeedDialAction icon={<DeleteIcon />} slotProps={{ tooltip: { title: 'Delete' } }} />
       </SpeedDial>
     </Box>
   );
@@ -160,11 +160,11 @@ const SpeedDialWithHiddenActions = (): ReactNode => {
   return (
     <Box sx={{ flexGrow: 1, height: 320, transform: 'translateZ(0px)' }}>
       <SpeedDial ariaLabel="SpeedDial with hidden actions" icon={<SpeedDialIcon />} onClose={handleClose} onOpen={handleOpen} open={open}>
-        <SpeedDialAction icon={<EditIcon />} tooltipTitle="Edit" />
-        <SpeedDialAction icon={<ShareIcon />} tooltipTitle="Share" />
-        <SpeedDialAction icon={<DeleteIcon />} tooltipTitle="Delete" />
-        <SpeedDialAction icon={<PrintIcon />} tooltipTitle="Print" />
-        <SpeedDialAction icon={<EmailIcon />} tooltipTitle="Email" />
+        <SpeedDialAction icon={<EditIcon />} slotProps={{ tooltip: { title: 'Edit' } }} />
+        <SpeedDialAction icon={<ShareIcon />} slotProps={{ tooltip: { title: 'Share' } }} />
+        <SpeedDialAction icon={<DeleteIcon />} slotProps={{ tooltip: { title: 'Delete' } }} />
+        <SpeedDialAction icon={<PrintIcon />} slotProps={{ tooltip: { title: 'Print' } }} />
+        <SpeedDialAction icon={<EmailIcon />} slotProps={{ tooltip: { title: 'Email' } }} />
       </SpeedDial>
     </Box>
   );
@@ -187,9 +187,9 @@ const SpeedDialWithFab = (): ReactNode => {
         open={open}
         sx={{ '& .MuiFab-primary': { height: 48, width: 48 } }}
       >
-        <SpeedDialAction icon={<EditIcon />} tooltipTitle="Edit" />
-        <SpeedDialAction icon={<ShareIcon />} tooltipTitle="Share" />
-        <SpeedDialAction icon={<DeleteIcon />} tooltipTitle="Delete" />
+        <SpeedDialAction icon={<EditIcon />} slotProps={{ tooltip: { title: 'Edit' } }} />
+        <SpeedDialAction icon={<ShareIcon />} slotProps={{ tooltip: { title: 'Share' } }} />
+        <SpeedDialAction icon={<DeleteIcon />} slotProps={{ tooltip: { title: 'Delete' } }} />
       </SpeedDial>
     </Box>
   );
@@ -207,27 +207,39 @@ const SpeedDialWithTooltip = (): ReactNode => {
       <SpeedDial ariaLabel="SpeedDial with tooltip" icon={<SpeedDialIcon />} onClose={handleClose} onOpen={handleOpen} open={open}>
         <SpeedDialAction
           icon={<EditIcon />}
-          tooltipTitle={
-            <Tooltip title="Edit this item">
-              <span>Edit</span>
-            </Tooltip>
-          }
+          slotProps={{
+            tooltip: {
+              title: (
+                <Tooltip title="Edit this item">
+                  <span>Edit</span>
+                </Tooltip>
+              ),
+            },
+          }}
         />
         <SpeedDialAction
           icon={<ShareIcon />}
-          tooltipTitle={
-            <Tooltip title="Share this item">
-              <span>Share</span>
-            </Tooltip>
-          }
+          slotProps={{
+            tooltip: {
+              title: (
+                <Tooltip title="Share this item">
+                  <span>Share</span>
+                </Tooltip>
+              ),
+            },
+          }}
         />
         <SpeedDialAction
           icon={<DeleteIcon />}
-          tooltipTitle={
-            <Tooltip title="Delete this item">
-              <span>Delete</span>
-            </Tooltip>
-          }
+          slotProps={{
+            tooltip: {
+              title: (
+                <Tooltip title="Delete this item">
+                  <span>Delete</span>
+                </Tooltip>
+              ),
+            },
+          }}
         />
       </SpeedDial>
     </Box>
@@ -258,9 +270,9 @@ const SpeedDialWithColors = (): ReactNode => {
           },
         }}
       >
-        <SpeedDialAction icon={<EditIcon />} tooltipTitle="Edit" />
-        <SpeedDialAction icon={<ShareIcon />} tooltipTitle="Share" />
-        <SpeedDialAction icon={<DeleteIcon />} tooltipTitle="Delete" />
+        <SpeedDialAction icon={<EditIcon />} slotProps={{ tooltip: { title: 'Edit' } }} />
+        <SpeedDialAction icon={<ShareIcon />} slotProps={{ tooltip: { title: 'Share' } }} />
+        <SpeedDialAction icon={<DeleteIcon />} slotProps={{ tooltip: { title: 'Delete' } }} />
       </SpeedDial>
     </Box>
   );
@@ -307,8 +319,8 @@ const themeStories = ThemesArray.reduce(
           <StoryVariation label="Simple SpeedDial" sx={{ p: 4 }}>
             <Box sx={{ flexGrow: 1, height: 320, transform: 'translateZ(0px)' }}>
               <SpeedDial ariaLabel="Simple SpeedDial" icon={<SpeedDialIcon />}>
-                <SpeedDialAction icon={<EditIcon />} tooltipTitle="Edit" />
-                <SpeedDialAction icon={<ShareIcon />} tooltipTitle="Share" />
+                <SpeedDialAction icon={<EditIcon />} slotProps={{ tooltip: { title: 'Edit' } }} />
+                <SpeedDialAction icon={<ShareIcon />} slotProps={{ tooltip: { title: 'Share' } }} />
               </SpeedDial>
             </Box>
           </StoryVariation>

@@ -119,7 +119,7 @@ const themeStories = ThemesArray.reduce(
                 title="Shrimp and Chorizo Paella"
               />
               <CardContent>
-                <Typography color="text.secondary" variant="body2">
+                <Typography sx={{ color: 'text.secondary' }} variant="body2">
                   This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
                 </Typography>
               </CardContent>
@@ -133,7 +133,7 @@ const themeStories = ThemesArray.reduce(
                 <Typography component="div" gutterBottom variant="h5">
                   Lizard
                 </Typography>
-                <Typography color="text.secondary" variant="body2">
+                <Typography sx={{ color: 'text.secondary' }} variant="body2">
                   Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica.
                 </Typography>
               </CardContent>
@@ -146,7 +146,7 @@ const themeStories = ThemesArray.reduce(
                 <Typography component="div" gutterBottom variant="h5">
                   Nature
                 </Typography>
-                <Typography color="text.secondary" variant="body2">
+                <Typography sx={{ color: 'text.secondary' }} variant="body2">
                   Nature is a great source of inspiration and beauty. It provides us with fresh air, clean water, and countless opportunities for adventure.
                 </Typography>
               </CardContent>
@@ -187,7 +187,7 @@ const themeStories = ThemesArray.reduce(
                   <Typography component="div" gutterBottom variant="h5">
                     Clickable Card
                   </Typography>
-                  <Typography color="text.secondary" variant="body2">
+                  <Typography sx={{ color: 'text.secondary' }} variant="body2">
                     This entire card is clickable and responds to user interactions.
                   </Typography>
                 </CardContent>
@@ -221,7 +221,7 @@ const themeStories = ThemesArray.reduce(
               />
               <CardMedia alt="Material-UI" component="img" height="140" image="https://mui.com/static/images/cards/contemplative-reptile.jpg" />
               <CardContent>
-                <Typography color="text.secondary" variant="body2">
+                <Typography sx={{ color: 'text.secondary' }} variant="body2">
                   Material-UI provides a robust, customizable, and accessible library of foundational and advanced components.
                 </Typography>
               </CardContent>

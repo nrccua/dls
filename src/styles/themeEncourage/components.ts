@@ -107,23 +107,37 @@ export const components: ThemeOptions['components'] = {
         marginBottom: 'auto',
         marginTop: px(2),
       },
-      outlinedError: {
-        color: COLORS.ERROR_DARK,
-      },
-      outlinedInfo: {
-        color: COLORS.INFO_DARK,
-      },
-      outlinedSuccess: {
-        color: COLORS.SUCCESS_DARK,
-      },
-      outlinedWarning: {
-        color: COLORS.WARNING_DARK,
-      },
       root: {
         ...cssRadius(4),
         alignItems: 'center',
       },
     },
+    variants: [
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'error',
+        style: {
+          color: COLORS.ERROR_DARK,
+        },
+      },
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'info',
+        style: {
+          color: COLORS.INFO_DARK,
+        },
+      },
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'success',
+        style: {
+          color: COLORS.SUCCESS_DARK,
+        },
+      },
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'warning',
+        style: {
+          color: COLORS.WARNING_DARK,
+        },
+      },
+    ],
   },
   MuiAppBar: {
     defaultProps: {
@@ -206,31 +220,9 @@ export const components: ThemeOptions['components'] = {
         },
         boxShadow: 'none',
       },
-      containedPrimary: {
-        '&:disabled': {
-          backgroundColor: customPalette.background.disabled,
-          color: palette.primary.contrastText,
-        },
-        '&:hover': {
-          backgroundColor: navyHover,
-        },
-      },
       outlined: {
         borderStyle: 'solid',
         ...LARGE_RADIUS,
-      },
-      outlinedPrimary: {
-        '&:disabled': {
-          backgroundColor: palette.primary.contrastText,
-          color: customPalette.background.disabled,
-        },
-        '&:hover': {
-          backgroundColor: palette.action.hover,
-          border: `1px solid ${palette.primary.light}`,
-          color: palette.primary.main,
-        },
-        backgroundColor: palette.primary.contrastText,
-        border: `1px solid ${palette.primary.light}`,
       },
       root: {
         height: undefined,
@@ -269,22 +261,61 @@ export const components: ThemeOptions['components'] = {
         // This is to keep the button from jumping around when we show the border on hover
         border: `1px solid transparent`,
       },
+    },
+    variants: [
+      {
+        props: { color: 'primary', variant: 'contained' },
+        style: {
+          '&:disabled': {
+            backgroundColor: customPalette.background.disabled,
+            color: palette.primary.contrastText,
+          },
+          '&:hover': {
+            backgroundColor: navyHover,
+          },
+        },
+      },
+      {
+        props: { color: 'primary', variant: 'outlined' },
+        style: {
+          '&:disabled': {
+            backgroundColor: palette.primary.contrastText,
+            color: customPalette.background.disabled,
+          },
+          '&:hover': {
+            backgroundColor: palette.action.hover,
+            border: `1px solid ${palette.primary.light}`,
+            color: palette.primary.main,
+          },
+          backgroundColor: palette.primary.contrastText,
+          border: `1px solid ${palette.primary.light}`,
+        },
+      },
       // Adjust these padding sizes for text buttons to account for
       // the 1px (sometimes invisible) border, otherwise text buttons
       // become 2px taller than other buttons of the same size
-      textSizeLarge: {
-        paddingBottom: px(SPACING_PX * 2 - 1),
-        paddingTop: px(SPACING_PX * 2 - 1),
+      {
+        props: { size: 'large', variant: 'text' },
+        style: {
+          paddingBottom: px(SPACING_PX * 2 - 1),
+          paddingTop: px(SPACING_PX * 2 - 1),
+        },
       },
-      textSizeMedium: {
-        paddingBottom: px(SPACING_PX - 1),
-        paddingTop: px(SPACING_PX - 1),
+      {
+        props: { size: 'medium', variant: 'text' },
+        style: {
+          paddingBottom: px(SPACING_PX - 1),
+          paddingTop: px(SPACING_PX - 1),
+        },
       },
-      textSizeSmall: {
-        paddingBottom: px(SPACING_PX * 0.5 - 1),
-        paddingTop: px(SPACING_PX * 0.5 - 1),
+      {
+        props: { size: 'small', variant: 'text' },
+        style: {
+          paddingBottom: px(SPACING_PX * 0.5 - 1),
+          paddingTop: px(SPACING_PX * 0.5 - 1),
+        },
       },
-    },
+    ],
   },
   MuiButtonBase: {
     styleOverrides: {
@@ -563,14 +594,16 @@ export const components: ThemeOptions['components'] = {
   },
   MuiTextField: {
     defaultProps: {
-      InputLabelProps: {
-        shrink: true,
-      },
-      InputProps: {
-        notched: true,
-        size: 'medium',
-      },
       size: 'small',
+      slotProps: {
+        input: {
+          notched: true,
+          size: 'medium',
+        },
+        inputLabel: {
+          shrink: true,
+        },
+      },
       variant: 'outlined',
     },
     styleOverrides: {

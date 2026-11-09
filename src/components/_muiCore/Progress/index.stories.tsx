@@ -67,7 +67,7 @@ const CircularProgressWithLabel = ({ value }: { value: number }): ReactNode => (
         top: 0,
       }}
     >
-      <Typography color="text.secondary" component="div" variant="caption">
+      <Typography component="div" sx={{ color: 'text.secondary' }} variant="caption">
         {`${Math.round(value)}%`}
       </Typography>
     </Box>
@@ -81,7 +81,7 @@ const LinearProgressWithLabel = ({ value }: { value: number }): ReactNode => (
       <LinearProgress value={value} variant="determinate" />
     </Box>
     <Box sx={{ minWidth: 35 }}>
-      <Typography color="text.secondary" variant="body2">
+      <Typography sx={{ color: 'text.secondary' }} variant="body2">
         {`${Math.round(value)}%`}
       </Typography>
     </Box>

@@ -353,7 +353,7 @@ const CustomIndicatorTabs = (): ReactNode => {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Tabs aria-label="custom indicator tabs example" onChange={handleChange} TabIndicatorProps={{ style: { backgroundColor: 'green' } }} value={value}>
+      <Tabs aria-label="custom indicator tabs example" onChange={handleChange} slotProps={{ indicator: { style: { backgroundColor: 'green' } } }} value={value}>
         <Tab label="Item One" />
         <Tab label="Item Two" />
         <Tab label="Item Three" />

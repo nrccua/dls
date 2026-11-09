@@ -70,7 +70,14 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
 
   return (
     <StyledContainer style={style}>
-      <Tooltip arrow placement={tooltipPlacement} PopperProps={PP} title={`First ${noun}`}>
+      <Tooltip
+        arrow
+        placement={tooltipPlacement}
+        slotProps={{
+          popper: PP,
+        }}
+        title={`First ${noun}`}
+      >
         <span>
           <IconButton aria-label={`First ${noun}`} disabled={disableFirst} onClick={(event): void => onPageChange(event, 0)} size="large">
             <PageFirst fontSize="small" htmlColor={disableFirst ? htmlColorDisabled : htmlColor} />
@@ -78,7 +85,14 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
         </span>
       </Tooltip>
 
-      <Tooltip arrow placement={tooltipPlacement} PopperProps={PP} title={`Previous ${noun}`}>
+      <Tooltip
+        arrow
+        placement={tooltipPlacement}
+        slotProps={{
+          popper: PP,
+        }}
+        title={`Previous ${noun}`}
+      >
         <span>
           <IconButton aria-label={`Previous ${noun}`} disabled={disablePrevious} onClick={(event): void => onPageChange(event, zeroBasedPage - 1)} size="large">
             <ChevronLeft fontSize="small" htmlColor={disablePrevious ? htmlColorDisabled : htmlColor} />
@@ -90,24 +104,26 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
         <StyledTextField
           disabled={disabled}
           select
-          SelectProps={{
-            MenuProps: PP as any,
-            onClose: (): void => {
-              setOpen(false);
-            },
-            onOpen: (): void => {
-              setOpen(true);
-              setTimeout((): void => {
-                if (listEl) {
-                  (listEl as any).current.scrollToItem(Number(zeroBasedPage), 'center');
-                }
-              }, 10);
-            },
-            open,
-            // eslint-disable-next-line react/display-name
-            renderValue: (value): ReactElement<unknown> => <span>{`${noun} ${Number(value) + 1}`}</span>,
-            SelectDisplayProps: {
-              'aria-label': 'Select',
+          slotProps={{
+            select: {
+              MenuProps: PP as any,
+              onClose: (): void => {
+                setOpen(false);
+              },
+              onOpen: (): void => {
+                setOpen(true);
+                setTimeout((): void => {
+                  if (listEl) {
+                    (listEl as any).current.scrollToItem(Number(zeroBasedPage), 'center');
+                  }
+                }, 10);
+              },
+              open,
+              // eslint-disable-next-line react/display-name
+              renderValue: (value): ReactElement<unknown> => <span>{`${noun} ${Number(value) + 1}`}</span>,
+              SelectDisplayProps: {
+                'aria-label': 'Select',
+              },
             },
           }}
           value={zeroBasedPage}
@@ -138,7 +154,14 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
         </StyledTextField>
       </div>
 
-      <Tooltip arrow placement={tooltipPlacement} PopperProps={PP} title={`Next ${noun}`}>
+      <Tooltip
+        arrow
+        placement={tooltipPlacement}
+        slotProps={{
+          popper: PP,
+        }}
+        title={`Next ${noun}`}
+      >
         <span>
           <IconButton aria-label={`Next ${noun}`} disabled={disableNext} onClick={(event): void => onPageChange(event, zeroBasedPage + 1)} size="large">
             <ChevronRight fontSize="small" htmlColor={disableNext ? htmlColorDisabled : htmlColor} />
@@ -146,7 +169,14 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
         </span>
       </Tooltip>
 
-      <Tooltip arrow placement={tooltipPlacement} PopperProps={PP} title={`Last ${noun}`}>
+      <Tooltip
+        arrow
+        placement={tooltipPlacement}
+        slotProps={{
+          popper: PP,
+        }}
+        title={`Last ${noun}`}
+      >
         <span>
           <IconButton
             aria-label={`Last ${noun}`}

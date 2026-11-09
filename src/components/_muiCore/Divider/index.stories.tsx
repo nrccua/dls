@@ -65,7 +65,7 @@ const themeStories = ThemesArray.reduce(
           </StoryVariation>
 
           <StoryVariation label="Light Divider" sx={{ p: 4 }}>
-            <Divider light />
+            <Divider sx={{ opacity: 0.6 }} />
           </StoryVariation>
 
           <StoryVariation label="Inset Divider" sx={{ p: 4 }}>

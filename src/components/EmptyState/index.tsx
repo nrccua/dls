@@ -6,9 +6,9 @@
  */
 
 import Button, { ButtonProps } from '@mui/material/Button';
+import { GridProps } from '@mui/material/Grid';
 import { IconProps } from '@mui/material/Icon';
 import { TypographyProps } from '@mui/material/Typography';
-import { GridProps, SizingProps } from '@mui/system';
 import isString from 'lodash/isString';
 import { ComponentClass, CSSProperties, FC, ReactElement, ReactNode } from 'react';
 
@@ -24,7 +24,7 @@ export interface EmptyStateProps {
   iconProps?: IconProps;
   style?: CSSProperties;
   title?: string | ReactElement<unknown>;
-  titleGridContainerProps?: GridProps & SizingProps;
+  titleGridContainerProps?: GridProps;
   titleTypographyProps?: TypographyProps & {
     component?: string;
   };
@@ -52,12 +52,18 @@ export const EmptyState: FC<EmptyStateProps> = ({
       })
     : undefined;
 
+  const { sx: titleGridContainerSx, ...titleGridContainerRest }: GridProps = titleGridContainerProps ?? {};
+
   return (
     <StyledContainer style={style}>
       {StyledIcon && <StyledIcon color="disabled" titleAccess={isString(title) ? title : undefined} {...iconProps} />}
 
       {title && (
-        <StyledGridContainer alignItems="center" container justifyContent="center" {...titleGridContainerProps}>
+        <StyledGridContainer
+          container
+          {...titleGridContainerRest}
+          sx={[{ alignItems: 'center', justifyContent: 'center' }, ...(Array.isArray(titleGridContainerSx) ? titleGridContainerSx : [titleGridContainerSx])]}
+        >
           <StyledGridItem>
             <StyledTypographyTitle align="center" component="h6" variant="body1" {...titleTypographyProps}>
               {title}

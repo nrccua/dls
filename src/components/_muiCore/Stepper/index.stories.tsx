@@ -309,7 +309,7 @@ const CustomStepIconStepper = (): ReactNode => {
       <Stepper activeStep={activeStep}>
         {steps.map(label => (
           <Step key={label}>
-            <StepLabel StepIconComponent={CustomStepIcon}>{label}</StepLabel>
+            <StepLabel slots={{ stepIcon: CustomStepIcon }}>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>

@@ -131,7 +131,7 @@ const themeStories = ThemesArray.reduce(
 
           <StoryVariation label="With Custom Background">
             <Paper sx={{ alignItems: 'center', bgcolor: 'primary.light', display: 'flex', justifyContent: 'center', minHeight: '80px', p: 2 }}>
-              <Typography color="primary.contrastText" variant="h6">
+              <Typography sx={{ color: 'primary.contrastText' }} variant="h6">
                 Custom Background
               </Typography>
             </Paper>

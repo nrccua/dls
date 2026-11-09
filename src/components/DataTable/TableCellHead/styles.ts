@@ -6,7 +6,7 @@
  */
 
 import { grey } from '@mui/material/colors';
-import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 import { Theme } from '@mui/material/styles';
 import { SvgIconProps } from '@mui/material/SvgIcon';
 import TableCell, { TableCellProps } from '@mui/material/TableCell';
@@ -54,10 +54,8 @@ export const StyledChevronDown = styled(ChevronDown)<SvgIconProps & IColorProp>(
   width: ICON_SIZE,
 }));
 
-export const StyledGrid = styled(Grid)(({ theme }) => ({
+export const StyledStack = styled(Stack)(({ theme }) => ({
   alignItems: 'center',
-  display: 'flex',
-  flexDirection: 'column',
   position: 'absolute',
   right: theme.spacing(1),
   top: `calc(50% - ${ICON_SIZE}px)`,
