@@ -1481,15 +1481,15 @@ export const components: ThemeOptions['components'] = {
         const isReadOnly = legacyInputProps?.readOnly || (!isFunction(inputSlotProps) && inputSlotProps?.readOnly);
         const readOnlyOverrides = isReadOnly
           ? {
+              '& :is(label, div).MuiFormLabel-root': {
+                color: palette.text.overLight.medium,
+              },
               '& div.MuiInputBase-readOnly': {
                 '& input.MuiInputBase-input': {
                   color: palette.text.overLight.high,
                   lineHeight: '24px',
                   WebkitTextFillColor: palette.text.overLight.high,
                 },
-              },
-              '& label.MuiFormLabel-root': {
-                color: palette.text.overLight.medium,
               },
               '&:hover': {
                 '& fieldset': {
@@ -1500,6 +1500,9 @@ export const components: ThemeOptions['components'] = {
           : {};
         const disabledOverrides = ownerState?.disabled
           ? {
+              '& :is(label, div).MuiFormLabel-root': {
+                color: palette.text.overLight.disabled,
+              },
               '& div.MuiInputBase-root': {
                 '& input.MuiInputBase-input': {
                   color: palette.text.overLight.disabled,
@@ -1521,9 +1524,6 @@ export const components: ThemeOptions['components'] = {
                   },
                 },
                 paddingRight: '12px',
-              },
-              '& label.MuiFormLabel-root': {
-                color: palette.text.overLight.disabled,
               },
             }
           : {};
@@ -1560,6 +1560,12 @@ export const components: ThemeOptions['components'] = {
         const mediumSizeOverrides =
           ownerState?.size === 'medium'
             ? {
+                '& :is(label, div).MuiFormLabel-root[data-shrink="false"]': {
+                  marginTop: '-3.5px',
+                },
+                '& :is(label, div)[data-shrink] + :not(& .MuiInputBase-adornedStart) input.MuiInputBase-input': {
+                  padding: '8px 0px 8px 12px',
+                },
                 '& div.Mui-disabled > div.MuiInputAdornment-positionStart + input': {
                   paddingRight: '0px',
                 },
@@ -1592,16 +1598,17 @@ export const components: ThemeOptions['components'] = {
                 '& input': {
                   lineHeight: '24px',
                 },
-                '& label.MuiFormLabel-root[data-shrink="false"]': {
-                  marginTop: '-3.5px',
-                },
-                '& label[data-shrink] + :not(& .MuiInputBase-adornedStart) input.MuiInputBase-input': {
-                  padding: '8px 0px 8px 12px',
-                },
                 height: '40px',
               }
             : {};
         return {
+          '& :is(label, div)[data-shrink="true"]': {
+            marginLeft: '-1px',
+          },
+          '& :is(label, div)[data-shrink="true"] + :not(& .MuiInputBase-adornedStart) input.MuiInputBase-input': {
+            borderRadius: '8px',
+            padding: '13px 0px 11px 12px',
+          },
           '& div.MuiInputAdornment-root + input': {
             paddingLeft: '8px',
           },
@@ -1640,13 +1647,6 @@ export const components: ThemeOptions['components'] = {
             borderRadius: '8px',
             height: '24px',
             lineHeight: '24px',
-          },
-          '& label[data-shrink="true"]': {
-            marginLeft: '-1px',
-          },
-          '& label[data-shrink="true"] + :not(& .MuiInputBase-adornedStart) input.MuiInputBase-input': {
-            borderRadius: '8px',
-            padding: '13px 0px 11px 12px',
           },
           ...hasValueOverrides,
           ...disabledOverrides,

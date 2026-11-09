@@ -9,8 +9,9 @@ import { common, grey } from '@mui/material/colors';
 import { Components } from '@mui/material/styles';
 import { BaseSlots } from '@mui/x-data-grid/internals';
 import Color from 'color';
-import ChevronDown from 'mdi-material-ui/ChevronDown';
-import FilterVariant from 'mdi-material-ui/FilterVariant';
+
+import { ChevronDown, FilterVariant } from '~/styles/icons';
+import { textFieldInputDefaults } from '~/styles/textFieldInputDefaults';
 
 import CUSTOM_DIMS from './customDims';
 import { COLORS } from './palette';
@@ -764,16 +765,16 @@ export const components: Components = {
   },
   MuiTextField: {
     defaultProps: {
-      color: 'secondary',
-      size: 'small',
-      slotProps: {
+      ...textFieldInputDefaults({
         input: {
           notched: false,
         },
         inputLabel: {
           shrink: true,
         },
-      },
+      }),
+      color: 'secondary',
+      size: 'small',
       variant: 'outlined',
     },
     styleOverrides: {},

@@ -13,6 +13,7 @@ import { ThemeOptions } from '@mui/material/styles';
 import cssRadius from '~/helpers/cssRadius';
 import px from '~/helpers/px';
 import pxToNumber from '~/helpers/pxToNumber';
+import { textFieldInputDefaults } from '~/styles/textFieldInputDefaults';
 
 import { COLORS, mist, navy, seafoam, surface, teal } from './colors';
 import customDims from './customDims';
@@ -594,8 +595,7 @@ export const components: ThemeOptions['components'] = {
   },
   MuiTextField: {
     defaultProps: {
-      size: 'small',
-      slotProps: {
+      ...textFieldInputDefaults({
         input: {
           notched: true,
           size: 'medium',
@@ -603,7 +603,8 @@ export const components: ThemeOptions['components'] = {
         inputLabel: {
           shrink: true,
         },
-      },
+      }),
+      size: 'small',
       variant: 'outlined',
     },
     styleOverrides: {
