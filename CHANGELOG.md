@@ -1,3 +1,15 @@
+# [3.1.0-next.1](https://github.com/nrccua/dls/compare/v3.0.2...v3.1.0-next.1) (2026-11-11)
+
+
+### Bug Fixes
+
+* Keep Material UI v7 support and E4E select label styles ([3b6a69e](https://github.com/nrccua/dls/commit/3b6a69e42dc1aabcce8e1ae7abd07e4cb4e455fa))
+
+
+### Features
+
+* Support Material UI v9 ([3c216bb](https://github.com/nrccua/dls/commit/3c216bb3c0c40002a9255c6311202e8907d683ef))
+
 ## [3.0.2](https://github.com/nrccua/dls/compare/v3.0.1...v3.0.2) (2026-09-25)
 
 
