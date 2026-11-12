@@ -26,6 +26,15 @@ export const NO_RADIUS = {
   borderTopRightRadius: 0,
 };
 
+const PICKER_DAY_STYLE_OVERRIDES = {
+  today: {
+    '&:not(&.Mui-selected)': {
+      border: `1px solid ${palette.branding.sapphire[100]}`,
+      color: palette.branding.sapphire[100],
+    },
+  },
+};
+
 export const components: ThemeOptions['components'] = {
   MuiAccordion: {
     styleOverrides: {
@@ -1122,15 +1131,11 @@ export const components: ThemeOptions['components'] = {
     },
   },
   MuiPickerDay: {
-    styleOverrides: {
-      today: {
-        '&:not(&.Mui-selected)': {
-          border: `1px solid ${palette.branding.sapphire[100]}`,
-          color: palette.branding.sapphire[100],
-        },
-      },
-    },
+    styleOverrides: PICKER_DAY_STYLE_OVERRIDES,
   },
+  // MUI X v8 (used with Material UI v7) names this component `MuiPickersDay`;
+  // v9 renamed it to `MuiPickerDay`, and its types no longer include the old key.
+  ...({ MuiPickersDay: { styleOverrides: PICKER_DAY_STYLE_OVERRIDES } } as ThemeOptions['components']),
   MuiPickerPopper: {
     styleOverrides: {
       paper: {
