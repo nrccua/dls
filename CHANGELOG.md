@@ -1,3 +1,23 @@
+# [4.0.0](https://github.com/nrccua/dls/compare/v3.0.2...v4.0.0) (2026-11-12)
+
+
+### Bug Fixes
+
+* Keep date picker day styles on MUI X v8 ([20943cd](https://github.com/nrccua/dls/commit/20943cdbf3e9a0e85b4c58db7b0e8277bdd9ef29))
+* Keep Material UI v7 support and E4E select label styles ([3b6a69e](https://github.com/nrccua/dls/commit/3b6a69e42dc1aabcce8e1ae7abd07e4cb4e455fa))
+
+
+### Features
+
+* Support Material UI v9 ([3c216bb](https://github.com/nrccua/dls/commit/3c216bb3c0c40002a9255c6311202e8907d683ef))
+
+
+### BREAKING CHANGES
+
+* Alert, Button, Chip and LinearProgress theme styles now use
+variants. Apps that override variant keys such as outlinedError or
+containedPrimary in their theme must move those overrides to variants.
+
 ## [3.0.2](https://github.com/nrccua/dls/compare/v3.0.1...v3.0.2) (2026-09-25)
 
 
