@@ -6,18 +6,17 @@
  */
 
 import { grey } from '@mui/material/colors';
-import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 import { Theme } from '@mui/material/styles';
 import { SvgIconProps } from '@mui/material/SvgIcon';
 import TableCell, { TableCellProps } from '@mui/material/TableCell';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 import clsx from 'clsx';
 import Color from 'color';
-import ChevronDown from 'mdi-material-ui/ChevronDown';
-import ChevronUp from 'mdi-material-ui/ChevronUp';
 
 import { createThemeStyled } from '~/helpers/styled';
 import { typeOk } from '~/helpers/types';
+import { ChevronDown, ChevronUp } from '~/styles/icons';
 import { ICustomDims } from '~/types';
 
 const ICON_SIZE = 14;
@@ -54,10 +53,8 @@ export const StyledChevronDown = styled(ChevronDown)<SvgIconProps & IColorProp>(
   width: ICON_SIZE,
 }));
 
-export const StyledGrid = styled(Grid)(({ theme }) => ({
+export const StyledStack = styled(Stack)(({ theme }) => ({
   alignItems: 'center',
-  display: 'flex',
-  flexDirection: 'column',
   position: 'absolute',
   right: theme.spacing(1),
   top: `calc(50% - ${ICON_SIZE}px)`,

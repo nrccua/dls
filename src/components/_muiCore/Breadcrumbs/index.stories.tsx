@@ -47,7 +47,7 @@ export const Documentation: Story = {
       <Link color="inherit" href="/category">
         Category
       </Link>
-      <Typography color="text.primary">Current Page</Typography>
+      <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
     </Breadcrumbs>
   ),
 };
@@ -69,7 +69,7 @@ export const PlaygroundStory: Story = {
       <Link color="inherit" href="/category">
         Category
       </Link>
-      <Typography color="text.primary">Current Page</Typography>
+      <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
     </Breadcrumbs>
   ),
 };
@@ -92,7 +92,7 @@ const themeStories = ThemesArray.reduce(
               <Link color="inherit" href="/category">
                 Category
               </Link>
-              <Typography color="text.primary">Current Page</Typography>
+              <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
             </Breadcrumbs>
           </StoryVariation>
 
@@ -107,7 +107,7 @@ const themeStories = ThemesArray.reduce(
               <Link color="inherit" href="/subcategory">
                 Subcategory
               </Link>
-              <Typography color="text.primary">Current Page</Typography>
+              <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
             </Breadcrumbs>
           </StoryVariation>
 
@@ -120,7 +120,7 @@ const themeStories = ThemesArray.reduce(
               <Link color="inherit" href="/category">
                 Category
               </Link>
-              <Typography color="text.primary">Current Page</Typography>
+              <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
             </Breadcrumbs>
           </StoryVariation>
 
@@ -141,7 +141,7 @@ const themeStories = ThemesArray.reduce(
               <Link color="inherit" href="/deep">
                 Deep Category
               </Link>
-              <Typography color="text.primary">Current Page</Typography>
+              <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
             </Breadcrumbs>
           </StoryVariation>
 
@@ -159,7 +159,7 @@ const themeStories = ThemesArray.reduce(
               <Link color="inherit" href="/subsubcategory">
                 Sub-subcategory
               </Link>
-              <Typography color="text.primary">Current Page</Typography>
+              <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
             </Breadcrumbs>
           </StoryVariation>
 
@@ -171,7 +171,7 @@ const themeStories = ThemesArray.reduce(
               <Link color="inherit" href="/category">
                 Category
               </Link>
-              <Typography color="text.primary">Current Page</Typography>
+              <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
             </Breadcrumbs>
           </StoryVariation>
 
@@ -180,7 +180,7 @@ const themeStories = ThemesArray.reduce(
               <Link color="inherit" href="/">
                 Home
               </Link>
-              <Typography color="text.primary">Current Page</Typography>
+              <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
             </Breadcrumbs>
           </StoryVariation>
 
@@ -192,8 +192,8 @@ const themeStories = ThemesArray.reduce(
               <Link color="inherit" href="/category">
                 Category
               </Link>
-              <Typography color="text.secondary">Disabled Page</Typography>
-              <Typography color="text.primary">Current Page</Typography>
+              <Typography sx={{ color: 'text.secondary' }}>Disabled Page</Typography>
+              <Typography sx={{ color: 'text.primary' }}>Current Page</Typography>
             </Breadcrumbs>
           </StoryVariation>
         </ThemeProvider>

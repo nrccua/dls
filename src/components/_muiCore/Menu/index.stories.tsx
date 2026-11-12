@@ -297,7 +297,7 @@ const MenuWithDivider = (): ReactNode => {
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My Account</MenuItem>
         <MenuItem disabled>
-          <Typography color="text.secondary" variant="body2">
+          <Typography sx={{ color: 'text.secondary' }} variant="body2">
             Account Settings
           </Typography>
         </MenuItem>

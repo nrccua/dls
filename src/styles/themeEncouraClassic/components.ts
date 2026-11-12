@@ -9,8 +9,9 @@ import { common, grey } from '@mui/material/colors';
 import { Components } from '@mui/material/styles';
 import { BaseSlots } from '@mui/x-data-grid/internals';
 import Color from 'color';
-import ChevronDown from 'mdi-material-ui/ChevronDown';
-import FilterVariant from 'mdi-material-ui/FilterVariant';
+
+import { ChevronDown, FilterVariant } from '~/styles/icons';
+import { textFieldInputDefaults } from '~/styles/textFieldInputDefaults';
 
 import CUSTOM_DIMS from './customDims';
 import { COLORS } from './palette';
@@ -44,20 +45,33 @@ export const components: Components = {
       severity: 'info',
       variant: 'standard',
     },
-    styleOverrides: {
-      outlinedError: {
-        color: COLORS.ERROR_DARK,
+    styleOverrides: {},
+    variants: [
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'error',
+        style: {
+          color: COLORS.ERROR_DARK,
+        },
       },
-      outlinedInfo: {
-        color: COLORS.INFO_DARK,
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'info',
+        style: {
+          color: COLORS.INFO_DARK,
+        },
       },
-      outlinedSuccess: {
-        color: COLORS.SUCCESS_DARK,
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'success',
+        style: {
+          color: COLORS.SUCCESS_DARK,
+        },
       },
-      outlinedWarning: {
-        color: COLORS.WARNING_DARK,
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'warning',
+        style: {
+          color: COLORS.WARNING_DARK,
+        },
       },
-    },
+    ],
   },
   MuiAlertTitle: {
     defaultProps: {},
@@ -751,13 +765,15 @@ export const components: Components = {
   },
   MuiTextField: {
     defaultProps: {
+      ...textFieldInputDefaults({
+        input: {
+          notched: false,
+        },
+        inputLabel: {
+          shrink: true,
+        },
+      }),
       color: 'secondary',
-      InputLabelProps: {
-        shrink: true,
-      },
-      InputProps: {
-        notched: false,
-      },
       size: 'small',
       variant: 'outlined',
     },
@@ -792,10 +808,6 @@ export const components: Components = {
         color: COLORS.TEXT_SECONDARY,
       },
     },
-  },
-  MuiTouchRipple: {
-    defaultProps: {},
-    styleOverrides: {},
   },
   MuiTypography: {
     defaultProps: {},

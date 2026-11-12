@@ -8,12 +8,10 @@
 import { IconButton, PopperProps, Tooltip } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import min from 'lodash/min';
-import ChevronLeft from 'mdi-material-ui/ChevronLeft';
-import ChevronRight from 'mdi-material-ui/ChevronRight';
-import PageFirst from 'mdi-material-ui/PageFirst';
-import PageLast from 'mdi-material-ui/PageLast';
 import { CSSProperties, FC, ReactElement, useRef, useState } from 'react';
 import { FixedSizeList } from 'react-window';
+
+import { ChevronLeft, ChevronRight, PageFirst, PageLast } from '~/styles/icons';
 
 import { StyledContainer, StyledMenuItem, StyledTextField } from './styles';
 
@@ -70,7 +68,14 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
 
   return (
     <StyledContainer style={style}>
-      <Tooltip arrow placement={tooltipPlacement} PopperProps={PP} title={`First ${noun}`}>
+      <Tooltip
+        arrow
+        placement={tooltipPlacement}
+        slotProps={{
+          popper: PP,
+        }}
+        title={`First ${noun}`}
+      >
         <span>
           <IconButton aria-label={`First ${noun}`} disabled={disableFirst} onClick={(event): void => onPageChange(event, 0)} size="large">
             <PageFirst fontSize="small" htmlColor={disableFirst ? htmlColorDisabled : htmlColor} />
@@ -78,7 +83,14 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
         </span>
       </Tooltip>
 
-      <Tooltip arrow placement={tooltipPlacement} PopperProps={PP} title={`Previous ${noun}`}>
+      <Tooltip
+        arrow
+        placement={tooltipPlacement}
+        slotProps={{
+          popper: PP,
+        }}
+        title={`Previous ${noun}`}
+      >
         <span>
           <IconButton aria-label={`Previous ${noun}`} disabled={disablePrevious} onClick={(event): void => onPageChange(event, zeroBasedPage - 1)} size="large">
             <ChevronLeft fontSize="small" htmlColor={disablePrevious ? htmlColorDisabled : htmlColor} />
@@ -90,24 +102,26 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
         <StyledTextField
           disabled={disabled}
           select
-          SelectProps={{
-            MenuProps: PP as any,
-            onClose: (): void => {
-              setOpen(false);
-            },
-            onOpen: (): void => {
-              setOpen(true);
-              setTimeout((): void => {
-                if (listEl) {
-                  (listEl as any).current.scrollToItem(Number(zeroBasedPage), 'center');
-                }
-              }, 10);
-            },
-            open,
-            // eslint-disable-next-line react/display-name
-            renderValue: (value): ReactElement<unknown> => <span>{`${noun} ${Number(value) + 1}`}</span>,
-            SelectDisplayProps: {
-              'aria-label': 'Select',
+          slotProps={{
+            select: {
+              MenuProps: PP as any,
+              onClose: (): void => {
+                setOpen(false);
+              },
+              onOpen: (): void => {
+                setOpen(true);
+                setTimeout((): void => {
+                  if (listEl) {
+                    (listEl as any).current.scrollToItem(Number(zeroBasedPage), 'center');
+                  }
+                }, 10);
+              },
+              open,
+              // eslint-disable-next-line react/display-name
+              renderValue: (value): ReactElement<unknown> => <span>{`${noun} ${Number(value) + 1}`}</span>,
+              SelectDisplayProps: {
+                'aria-label': 'Select',
+              },
             },
           }}
           value={zeroBasedPage}
@@ -138,7 +152,14 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
         </StyledTextField>
       </div>
 
-      <Tooltip arrow placement={tooltipPlacement} PopperProps={PP} title={`Next ${noun}`}>
+      <Tooltip
+        arrow
+        placement={tooltipPlacement}
+        slotProps={{
+          popper: PP,
+        }}
+        title={`Next ${noun}`}
+      >
         <span>
           <IconButton aria-label={`Next ${noun}`} disabled={disableNext} onClick={(event): void => onPageChange(event, zeroBasedPage + 1)} size="large">
             <ChevronRight fontSize="small" htmlColor={disableNext ? htmlColorDisabled : htmlColor} />
@@ -146,7 +167,14 @@ export const TablePaginationActions: FC<TablePaginationActionsProps> = ({
         </span>
       </Tooltip>
 
-      <Tooltip arrow placement={tooltipPlacement} PopperProps={PP} title={`Last ${noun}`}>
+      <Tooltip
+        arrow
+        placement={tooltipPlacement}
+        slotProps={{
+          popper: PP,
+        }}
+        title={`Last ${noun}`}
+      >
         <span>
           <IconButton
             aria-label={`Last ${noun}`}

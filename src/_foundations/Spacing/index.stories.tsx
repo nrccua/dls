@@ -27,14 +27,14 @@ const Story = (): React.ReactElement => {
       <Grid container>
         <Grid>
           <TextField
-            InputProps={{
-              inputProps: {
-                min: 0,
-              },
-            }}
             label="Spacing"
             onChange={(e): void => {
               setSp(Number(e.target.value || 0));
+            }}
+            slotProps={{
+              htmlInput: {
+                min: 0,
+              },
             }}
             type="number"
             value={sp}

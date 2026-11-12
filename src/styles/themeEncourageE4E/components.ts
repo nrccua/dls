@@ -6,6 +6,7 @@
  */
 
 import { ThemeOptions } from '@mui/material/styles';
+import isFunction from 'lodash/isFunction';
 
 import E4ECustomDimensions from './E4ECustomDimensions';
 import palette from './palette';
@@ -23,6 +24,15 @@ export const NO_RADIUS = {
   borderRadius: 0,
   borderTopLeftRadius: 0,
   borderTopRightRadius: 0,
+};
+
+const PICKER_DAY_STYLE_OVERRIDES = {
+  today: {
+    '&:not(&.Mui-selected)': {
+      border: `1px solid ${palette.branding.sapphire[100]}`,
+      color: palette.branding.sapphire[100],
+    },
+  },
 };
 
 export const components: ThemeOptions['components'] = {
@@ -117,38 +127,6 @@ export const components: ThemeOptions['components'] = {
         flexGrow: 1,
         padding: 0,
       },
-      outlinedError: {
-        background: palette.utility.error[50],
-        borderColor: palette.utility.error[500],
-        color: palette.utility.error[700],
-        svg: {
-          fill: palette.utility.error[700],
-        },
-      },
-      outlinedInfo: {
-        background: palette.utility.info[50],
-        borderColor: palette.branding.sapphire[600],
-        color: palette.utility.info[700],
-        svg: {
-          fill: palette.utility.info[700],
-        },
-      },
-      outlinedSuccess: {
-        background: palette.utility.success[50],
-        borderColor: palette.utility.success[500],
-        color: palette.utility.success[700],
-        svg: {
-          fill: palette.utility.success[700],
-        },
-      },
-      outlinedWarning: {
-        background: palette.utility.warning[50],
-        borderColor: palette.utility.warning[600],
-        color: palette.utility.warning[800],
-        svg: {
-          fill: palette.utility.warning[600],
-        },
-      },
       root: {
         alignItems: 'center',
         border: '1px solid',
@@ -162,12 +140,61 @@ export const components: ThemeOptions['components'] = {
         borderColor: palette.branding.surface[500],
         color: palette.text.overLight.high,
       },
-      standardInfo: {
-        '.MuiAlert-icon': {
-          display: 'none',
+    },
+    variants: [
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'error',
+        style: {
+          background: palette.utility.error[50],
+          borderColor: palette.utility.error[500],
+          color: palette.utility.error[700],
+          svg: {
+            fill: palette.utility.error[700],
+          },
         },
       },
-    },
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'info',
+        style: {
+          background: palette.utility.info[50],
+          borderColor: palette.branding.sapphire[600],
+          color: palette.utility.info[700],
+          svg: {
+            fill: palette.utility.info[700],
+          },
+        },
+      },
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'success',
+        style: {
+          background: palette.utility.success[50],
+          borderColor: palette.utility.success[500],
+          color: palette.utility.success[700],
+          svg: {
+            fill: palette.utility.success[700],
+          },
+        },
+      },
+      {
+        props: ({ color, severity, variant }) => variant === 'outlined' && (color || severity) === 'warning',
+        style: {
+          background: palette.utility.warning[50],
+          borderColor: palette.utility.warning[600],
+          color: palette.utility.warning[800],
+          svg: {
+            fill: palette.utility.warning[600],
+          },
+        },
+      },
+      {
+        props: ({ color, severity, variant }) => variant === 'standard' && (color || severity) === 'info',
+        style: {
+          '.MuiAlert-icon': {
+            display: 'none',
+          },
+        },
+      },
+    ],
   },
   MuiAutocomplete: {
     styleOverrides: {
@@ -337,16 +364,6 @@ export const components: ThemeOptions['components'] = {
         backgroundColor: palette.branding.sapphire[100],
         boxShadow: 'none',
       },
-      containedPrimary: {
-        '&:hover': {
-          backgroundColor: palette.branding.sapphire[700],
-        },
-      },
-      containedSecondary: {
-        '&:hover': {
-          backgroundColor: palette.branding.teal[700],
-        },
-      },
       iconOutlined: {
         '&.MuiButton-sizeLarge': {
           border: `2px solid ${palette.branding.sapphire[80]}`,
@@ -449,16 +466,40 @@ export const components: ThemeOptions['components'] = {
         color: palette.branding.sapphire[100],
         fontWeight: 500,
       },
-      textSecondary: {
-        '&:hover': {
-          backgroundColor: palette.branding.teal[50],
-        },
-        color: palette.branding.teal[100],
-      },
-      textSizeLarge: {
-        fontWeight: 600,
-      },
     },
+    variants: [
+      {
+        props: { color: 'primary', variant: 'contained' },
+        style: {
+          '&:hover': {
+            backgroundColor: palette.branding.sapphire[700],
+          },
+        },
+      },
+      {
+        props: { color: 'secondary', variant: 'contained' },
+        style: {
+          '&:hover': {
+            backgroundColor: palette.branding.teal[700],
+          },
+        },
+      },
+      {
+        props: { color: 'secondary', variant: 'text' },
+        style: {
+          '&:hover': {
+            backgroundColor: palette.branding.teal[50],
+          },
+          color: palette.branding.teal[100],
+        },
+      },
+      {
+        props: { size: 'large', variant: 'text' },
+        style: {
+          fontWeight: 600,
+        },
+      },
+    ],
   },
   MuiButtonBase: {
     defaultProps: {
@@ -531,22 +572,8 @@ export const components: ThemeOptions['components'] = {
       avatar: {
         fill: palette.text.overLight.high,
       },
-      avatarMedium: {
-        height: 24,
-        width: 24,
-      },
-      avatarSmall: {
-        height: 16,
-        width: 16,
-      },
       deleteIcon: {
         margin: 0,
-      },
-      deleteIconMedium: {
-        '&>svg': {
-          height: 24,
-          width: 24,
-        },
       },
       filled: {
         '&.Mui-disabled': {
@@ -555,12 +582,6 @@ export const components: ThemeOptions['components'] = {
           },
           backgroundColor: `${palette.branding.mist[100]} !important`,
         },
-      },
-      labelMedium: {
-        padding: '0px 6px',
-      },
-      labelSmall: {
-        padding: '0px 6px',
       },
       outlined: {
         '&.Mui-disabled': {
@@ -610,6 +631,36 @@ export const components: ThemeOptions['components'] = {
       },
     },
     variants: [
+      {
+        props: { size: 'medium' },
+        style: {
+          '& .MuiChip-avatar': {
+            height: 24,
+            width: 24,
+          },
+          '& .MuiChip-deleteIcon': {
+            '&>svg': {
+              height: 24,
+              width: 24,
+            },
+          },
+          '& .MuiChip-label': {
+            padding: '0px 6px',
+          },
+        },
+      },
+      {
+        props: { size: 'small' },
+        style: {
+          '& .MuiChip-avatar': {
+            height: 16,
+            width: 16,
+          },
+          '& .MuiChip-label': {
+            padding: '0px 6px',
+          },
+        },
+      },
       {
         props: { variant: 'gradYear' },
         style: {
@@ -915,15 +966,22 @@ export const components: ThemeOptions['components'] = {
       bar: {
         backgroundColor: palette.branding.teal[100],
       },
-      bar1Determinate: {
-        borderRadius: 8,
-      },
       root: {
         background: palette.branding.surface[300],
         borderRadius: 8,
         height: 12,
       },
     },
+    variants: [
+      {
+        props: { variant: 'determinate' },
+        style: {
+          '& .MuiLinearProgress-bar1': {
+            borderRadius: 8,
+          },
+        },
+      },
+    ],
   },
   MuiLink: {
     styleOverrides: {
@@ -1072,6 +1130,12 @@ export const components: ThemeOptions['components'] = {
       },
     },
   },
+  MuiPickerDay: {
+    styleOverrides: PICKER_DAY_STYLE_OVERRIDES,
+  },
+  // MUI X v8 (used with Material UI v7) names this component `MuiPickersDay`;
+  // v9 renamed it to `MuiPickerDay`, and its types no longer include the old key.
+  ...({ MuiPickersDay: { styleOverrides: PICKER_DAY_STYLE_OVERRIDES } } as ThemeOptions['components']),
   MuiPickerPopper: {
     styleOverrides: {
       paper: {
@@ -1130,16 +1194,6 @@ export const components: ThemeOptions['components'] = {
       },
       switchViewIcon: {
         color: palette.branding.sapphire[100],
-      },
-    },
-  },
-  MuiPickersDay: {
-    styleOverrides: {
-      today: {
-        '&:not(&.Mui-selected)': {
-          border: `1px solid ${palette.branding.sapphire[100]}`,
-          color: palette.branding.sapphire[100],
-        },
       },
     },
   },
@@ -1426,17 +1480,21 @@ export const components: ThemeOptions['components'] = {
   MuiTextField: {
     styleOverrides: {
       root: ({ ownerState }) => {
-        const readOnlyOverrides = ownerState?.InputProps?.readOnly
+        // `InputProps` is the MUI 7 API; MUI 9 only accepts `slotProps.input`
+        const legacyInputProps = (ownerState as { InputProps?: { readOnly?: boolean } } | undefined)?.InputProps;
+        const inputSlotProps = ownerState?.slotProps?.input;
+        const isReadOnly = legacyInputProps?.readOnly || (!isFunction(inputSlotProps) && inputSlotProps?.readOnly);
+        const readOnlyOverrides = isReadOnly
           ? {
+              '& :is(label, div).MuiFormLabel-root': {
+                color: palette.text.overLight.medium,
+              },
               '& div.MuiInputBase-readOnly': {
                 '& input.MuiInputBase-input': {
                   color: palette.text.overLight.high,
                   lineHeight: '24px',
                   WebkitTextFillColor: palette.text.overLight.high,
                 },
-              },
-              '& label.MuiFormLabel-root': {
-                color: palette.text.overLight.medium,
               },
               '&:hover': {
                 '& fieldset': {
@@ -1447,6 +1505,9 @@ export const components: ThemeOptions['components'] = {
           : {};
         const disabledOverrides = ownerState?.disabled
           ? {
+              '& :is(label, div).MuiFormLabel-root': {
+                color: palette.text.overLight.disabled,
+              },
               '& div.MuiInputBase-root': {
                 '& input.MuiInputBase-input': {
                   color: palette.text.overLight.disabled,
@@ -1468,9 +1529,6 @@ export const components: ThemeOptions['components'] = {
                   },
                 },
                 paddingRight: '12px',
-              },
-              '& label.MuiFormLabel-root': {
-                color: palette.text.overLight.disabled,
               },
             }
           : {};
@@ -1507,6 +1565,12 @@ export const components: ThemeOptions['components'] = {
         const mediumSizeOverrides =
           ownerState?.size === 'medium'
             ? {
+                '& :is(label, div).MuiFormLabel-root[data-shrink="false"]': {
+                  marginTop: '-3.5px',
+                },
+                '& :is(label, div)[data-shrink] + :not(& .MuiInputBase-adornedStart) input.MuiInputBase-input': {
+                  padding: '8px 0px 8px 12px',
+                },
                 '& div.Mui-disabled > div.MuiInputAdornment-positionStart + input': {
                   paddingRight: '0px',
                 },
@@ -1539,16 +1603,17 @@ export const components: ThemeOptions['components'] = {
                 '& input': {
                   lineHeight: '24px',
                 },
-                '& label.MuiFormLabel-root[data-shrink="false"]': {
-                  marginTop: '-3.5px',
-                },
-                '& label[data-shrink] + :not(& .MuiInputBase-adornedStart) input.MuiInputBase-input': {
-                  padding: '8px 0px 8px 12px',
-                },
                 height: '40px',
               }
             : {};
         return {
+          '& :is(label, div)[data-shrink="true"]': {
+            marginLeft: '-1px',
+          },
+          '& :is(label, div)[data-shrink="true"] + :not(& .MuiInputBase-adornedStart) input.MuiInputBase-input': {
+            borderRadius: '8px',
+            padding: '13px 0px 11px 12px',
+          },
           '& div.MuiInputAdornment-root + input': {
             paddingLeft: '8px',
           },
@@ -1587,13 +1652,6 @@ export const components: ThemeOptions['components'] = {
             borderRadius: '8px',
             height: '24px',
             lineHeight: '24px',
-          },
-          '& label[data-shrink="true"]': {
-            marginLeft: '-1px',
-          },
-          '& label[data-shrink="true"] + :not(& .MuiInputBase-adornedStart) input.MuiInputBase-input': {
-            borderRadius: '8px',
-            padding: '13px 0px 11px 12px',
           },
           ...hasValueOverrides,
           ...disabledOverrides,

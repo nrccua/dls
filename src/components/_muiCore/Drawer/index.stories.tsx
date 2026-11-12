@@ -193,8 +193,8 @@ const themeStories = ThemesArray.reduce(
             <DrawerWithToggle
               anchor="left"
               label="Custom Styled Drawer"
-              PaperProps={{
-                sx: { backgroundColor: 'primary.light', color: 'primary.contrastText' },
+              slotProps={{
+                paper: { sx: { backgroundColor: 'primary.light', color: 'primary.contrastText' } },
               }}
             />
           </StoryVariation>
