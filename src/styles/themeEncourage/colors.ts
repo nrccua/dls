@@ -144,10 +144,15 @@ export const teal = {
   900: '#004946',
 };
 
+export const militaryDark = '#BFB6A1';
+export const militaryLight = '#F6EFDE';
+
 export const utility = {
   blueAlertFill: '#D1E5F0',
   danger: '#B00020',
   dangerAlertFill: '#EEDDE0',
+  militaryDark,
+  militaryLight,
   savedCollegeHeartFill: '#F94868',
   successAlert: '#2E7D32',
   successAlertFill: '#E1E9E2',
